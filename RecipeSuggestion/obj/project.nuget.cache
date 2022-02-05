@@ -1,8 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "kTd6QFNqjCM87LtGFB9OzM9fCM88swHGpc5zyoOJwvzgMjUdSJmL4AZOkLsZIYIpvrUC7fYEUukd1c9VyqfuZA==",
+  "dgSpecHash": "B+6svwfHW5mhKwXG9xvaVyoIikAuy7ZoUi6tA3pjiuTod7Aq02Yx8M4h+ideB3jXlm+Uv2r5h51u9xJrjoWKuA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Nahom\\Desktop\\INFO2310\\RecipeSuggestion\\RecipeSuggestion\\RecipeSuggestion.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "C:\\Conestoga\\Application Project (INFO2310)\\RecipeSuggestion\\RecipeSuggestion\\RecipeSuggestion.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Hayden\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\5.0.13\\microsoft.netcore.app.host.win-x64.5.0.13.nupkg.sha512",
+    "C:\\Users\\Hayden\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\5.0.0\\microsoft.aspnetcore.app.ref.5.0.0.nupkg.sha512",
+    "C:\\Users\\Hayden\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\5.0.0\\microsoft.windowsdesktop.app.ref.5.0.0.nupkg.sha512",
+    "C:\\Users\\Hayden\\.nuget\\packages\\microsoft.netcore.app.ref\\5.0.0\\microsoft.netcore.app.ref.5.0.0.nupkg.sha512"
+  ],
   "logs": []
 }
