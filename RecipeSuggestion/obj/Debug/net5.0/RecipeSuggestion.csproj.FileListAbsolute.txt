@@ -79,3 +79,4 @@ C:\Users\juho1\Desktop\RecipeSuggestion\RecipeSuggestion\obj\Debug\net5.0\ref\Re
 C:\Users\juho1\Desktop\RecipeSuggestion\RecipeSuggestion\obj\Debug\net5.0\RecipeSuggestion.pdb
 C:\Users\juho1\Desktop\RecipeSuggestion\RecipeSuggestion\obj\Debug\net5.0\RecipeSuggestion.genruntimeconfig.cache
 C:\Users\juho1\Desktop\RecipeSuggestion\RecipeSuggestion\obj\Debug\net5.0\RecipeSuggestion.csproj.CopyComplete
+C:\Conestoga\Application Project (INFO2310)\RecipeSuggestion\RecipeSuggestion\bin\Debug\net5.0\RecipeSuggestion.StaticWebAssets.xml
