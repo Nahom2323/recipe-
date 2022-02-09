@@ -1,4 +1,8 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
+using RecipeSuggestion.Models;
+using RecipeSuggestion.Models.ViewModel;
+using System.Threading.Tasks;
 
 namespace RecipeSuggestion.Controllers
 {
@@ -14,12 +18,12 @@ namespace RecipeSuggestion.Controllers
         }
 
         [HttpGet]
-        public IActionResult Register()
+        public IActionResult SignUp()
         {
             return View();
         }
         [HttpPost]
-        public async Task<IActionResult> Register(RegisterViewModel model)
+        public async Task<IActionResult> SignUp(SignUpViewModel model)
         {
             if (ModelState.IsValid)
             {
@@ -53,12 +57,12 @@ namespace RecipeSuggestion.Controllers
         [HttpGet]
         public IActionResult LogIn(string returnURL = "")
         {
-            var model = new LoginViewModel { ReturnUrl = returnURL };
+            var model = new LogInViewModel { ReturnUrl = returnURL };
             return View(model);
         }
 
         [HttpPost]
-        public async Task<IActionResult> LogIn(LoginViewModel model)
+        public async Task<IActionResult> LogIn(LogInViewModel model)
         {
             if (ModelState.IsValid)
             {
