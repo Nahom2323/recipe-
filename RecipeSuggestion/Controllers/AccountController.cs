@@ -54,13 +54,19 @@ namespace RecipeSuggestion.Controllers
             return RedirectToAction("Index", "Home");
         }
 
+        /*
         [HttpGet]
         public IActionResult LogIn(string returnURL = "")
         {
             var model = new LogInViewModel { ReturnUrl = returnURL };
             return View(model);
         }
-
+        */
+        [HttpGet]
+        public IActionResult LogIn()
+		{
+            return View();
+		}
         [HttpPost]
         public async Task<IActionResult> LogIn(LogInViewModel model)
         {
