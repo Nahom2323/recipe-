@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "X8CR4EOUiuqfmgkTav1Z8aLLyYRvluiI+p48gKgMJjM6YT4KDYKW+Z1dDjr31nzmyFAYcpl6SG5UALY8D8xbEQ==",
+  "dgSpecHash": "XRl08L+yv5FAZrzSSNrIsQ8Ems0G3eP/QB5eY6kXn1dv/Jc6t/c1dn43D6sczwSg601v8hfFPgFtuDm/jOU7Aw==",
   "success": true,
-  "projectFilePath": "C:\\Conestoga\\Application Project (INFO2310)\\RecipeSuggestion\\RecipeSuggestion\\RecipeSuggestion.csproj",
+  "projectFilePath": "C:\\Users\\Hayden\\Desktop\\TestProject\\RecipeSuggestion\\RecipeSuggestion\\RecipeSuggestion.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Hayden\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\Hayden\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\5.0.12\\microsoft.aspnetcore.cryptography.internal.5.0.12.nupkg.sha512",

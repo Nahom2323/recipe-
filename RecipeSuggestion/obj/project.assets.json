@@ -5662,11 +5662,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Conestoga\\Application Project (INFO2310)\\RecipeSuggestion\\RecipeSuggestion\\RecipeSuggestion.csproj",
+      "projectUniqueName": "C:\\Users\\Hayden\\Desktop\\TestProject\\RecipeSuggestion\\RecipeSuggestion\\RecipeSuggestion.csproj",
       "projectName": "RecipeSuggestion",
-      "projectPath": "C:\\Conestoga\\Application Project (INFO2310)\\RecipeSuggestion\\RecipeSuggestion\\RecipeSuggestion.csproj",
+      "projectPath": "C:\\Users\\Hayden\\Desktop\\TestProject\\RecipeSuggestion\\RecipeSuggestion\\RecipeSuggestion.csproj",
       "packagesPath": "C:\\Users\\Hayden\\.nuget\\packages\\",
-      "outputPath": "C:\\Conestoga\\Application Project (INFO2310)\\RecipeSuggestion\\RecipeSuggestion\\obj\\",
+      "outputPath": "C:\\Users\\Hayden\\Desktop\\TestProject\\RecipeSuggestion\\RecipeSuggestion\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Hayden\\AppData\\Roaming\\NuGet\\NuGet.Config",
