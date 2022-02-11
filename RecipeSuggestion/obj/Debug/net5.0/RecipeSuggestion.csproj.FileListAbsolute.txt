@@ -116,5 +116,7 @@ C:\Conestoga\Application Project (INFO2310)\RecipeSuggestion\RecipeSuggestion\bi
 C:\Conestoga\Application Project (INFO2310)\RecipeSuggestion\RecipeSuggestion\bin\Debug\net5.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.pdb
 C:\Conestoga\Application Project (INFO2310)\RecipeSuggestion\RecipeSuggestion\bin\Debug\net5.0\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
 C:\Conestoga\Application Project (INFO2310)\RecipeSuggestion\RecipeSuggestion\bin\Debug\net5.0\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
-C:\Conestoga\Application Project (INFO2310)\RecipeSuggestion\RecipeSuggestion\obj\Debug\net5.0\Razor\Views\Account\LogIn.cshtml.g.cs
 C:\Conestoga\Application Project (INFO2310)\RecipeSuggestion\RecipeSuggestion\obj\Debug\net5.0\Razor\Views\Account\SignUp.cshtml.g.cs
+C:\Conestoga\Application Project (INFO2310)\RecipeSuggestion\RecipeSuggestion\obj\Debug\net5.0\RecipeSuggestion.csproj.AssemblyReference.cache
+C:\Conestoga\Application Project (INFO2310)\RecipeSuggestion\RecipeSuggestion\obj\Debug\net5.0\Razor\Views\Account\Test.cshtml.g.cs
+C:\Conestoga\Application Project (INFO2310)\RecipeSuggestion\RecipeSuggestion\obj\Debug\net5.0\Razor\Views\Account\LogIn.cshtml.g.cs

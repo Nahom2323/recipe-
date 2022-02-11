@@ -33,8 +33,15 @@ using RecipeSuggestion.Models.ViewModel;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 5 "C:\Conestoga\Application Project (INFO2310)\RecipeSuggestion\RecipeSuggestion\Views\_ViewImports.cshtml"
+using Microsoft.AspNetCore.Identity;
+
+#line default
+#line hidden
+#nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"e20475fee157f6f01461ae56d6963c4764d63114", @"/Views/Account/LogIn.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"2b2613bdd2cdc792f36e747cd751a2a0c2229aba", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"0c01cfe949fe35887b9c045e9ef2e2f5e2e69041", @"/Views/_ViewImports.cshtml")]
     public class Views_Account_LogIn : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<LogInViewModel>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("asp-action", "Register", global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -68,7 +75,7 @@ using RecipeSuggestion.Models.ViewModel;
         public async override global::System.Threading.Tasks.Task ExecuteAsync()
         {
             WriteLiteral("\r\n        <h1 class=\"jumbotron\">Login</h1>\r\n        ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e20475fee157f6f01461ae56d6963c4764d631144977", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e20475fee157f6f01461ae56d6963c4764d631145199", async() => {
                 WriteLiteral(@"
             <div class=""form-group row"">
                 <div class=""col-sm-2""><label>Email Address:</label></div>
@@ -94,7 +101,7 @@ using RecipeSuggestion.Models.ViewModel;
             <div class=""row"">
                 <div class=""offset-2 col-sm-4"">
                     ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e20475fee157f6f01461ae56d6963c4764d631146158", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e20475fee157f6f01461ae56d6963c4764d631146380", async() => {
                     WriteLiteral("Create New Account");
                 }
                 );
@@ -111,7 +118,7 @@ using RecipeSuggestion.Models.ViewModel;
                 Write(__tagHelperExecutionContext.Output);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
                 WriteLiteral("\r\n                </div>\r\n            </div>\r\n\r\n            <div class=\"row\">\r\n                <div class=\"offset-2 col-sm-4\">\r\n                    Forget Password?\r\n                    ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e20475fee157f6f01461ae56d6963c4764d631147676", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e20475fee157f6f01461ae56d6963c4764d631147898", async() => {
                     WriteLiteral("Reset Password");
                 }
                 );

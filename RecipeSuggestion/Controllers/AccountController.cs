@@ -11,11 +11,11 @@ namespace RecipeSuggestion.Controllers
         private UserManager<User> userManager;
         private SignInManager<User> signInManager;
 
-        public AccountController(UserManager<User> userMngr, SignInManager<User> signInMngr)
+        /*public AccountController(UserManager<User> userMngr, SignInManager<User> signInMngr)
         {
             userManager = userMngr;
             signInManager = signInMngr;
-        }
+        }*/
 
         [HttpGet]
         public IActionResult SignUp()
@@ -54,20 +54,14 @@ namespace RecipeSuggestion.Controllers
             return RedirectToAction("Index", "Home");
         }
 
-        /*
-        [HttpGet]
-        public IActionResult LogIn(string returnURL = "")
-        {
-            var model = new LogInViewModel { ReturnUrl = returnURL };
-            return View(model);
-        }
-        */
-        [HttpGet]
-        public IActionResult LogIn()
+		[HttpGet]
+		public IActionResult LogIn(string returnURL = "")
 		{
-            return View();
+			var model = new LogInViewModel { ReturnUrl = returnURL };
+			return View(model);
 		}
-        [HttpPost]
+
+		[HttpPost]
         public async Task<IActionResult> LogIn(LogInViewModel model)
         {
             if (ModelState.IsValid)
