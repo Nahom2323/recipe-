@@ -22,10 +22,5 @@ namespace RecipeSuggestion.Controllers
         {
             return View();
         }
-
-        public IActionResult LogIn()
-		{
-            return View();
-		}
     }
 }

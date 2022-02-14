@@ -14,15 +14,15 @@ namespace RecipeSuggestion.Controllers
             _userManager = userMngr;
             _signInManager = signInMngr;
         }
-        /*
+        
         [HttpGet]
-        public IActionResult Register()
+        public IActionResult SignUp()
         {
             return View();
         }
 
         [HttpPost]
-        public async Task<IActionResult> Register(RegisterViewModel model)
+        public async Task<IActionResult> SignUp(SignUpViewModel model)
         {
             if (ModelState.IsValid)
             {
@@ -32,7 +32,7 @@ namespace RecipeSuggestion.Controllers
                 if (result.Succeeded)
                 {
                     await _signInManager.SignInAsync(user, isPersistent: false);
-                    return RedirectToAction("List", "Album");
+                    return RedirectToAction("Index", "Home");
                 }
                 else
                 {
@@ -45,12 +45,12 @@ namespace RecipeSuggestion.Controllers
 
             return View(model);
         }
-        */
+        
         [HttpPost]
         public async Task<IActionResult> LogOut()
         {
             await _signInManager.SignOutAsync();
-            return RedirectToAction("List", "Album");
+            return RedirectToAction("Index", "Home");
         }
 
         [HttpGet]
