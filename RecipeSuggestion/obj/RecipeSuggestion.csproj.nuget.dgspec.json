@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Conestoga\\Application Project (INFO2310)\\RecipeSuggestion\\RecipeSuggestion\\RecipeSuggestion.csproj": {}
+    "C:\\Users\\Hayden\\Desktop\\Capstone\\TestProject\\RecipeSuggestion\\RecipeSuggestion\\RecipeSuggestion.csproj": {}
   },
   "projects": {
-    "C:\\Conestoga\\Application Project (INFO2310)\\RecipeSuggestion\\RecipeSuggestion\\RecipeSuggestion.csproj": {
+    "C:\\Users\\Hayden\\Desktop\\Capstone\\TestProject\\RecipeSuggestion\\RecipeSuggestion\\RecipeSuggestion.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Conestoga\\Application Project (INFO2310)\\RecipeSuggestion\\RecipeSuggestion\\RecipeSuggestion.csproj",
+        "projectUniqueName": "C:\\Users\\Hayden\\Desktop\\Capstone\\TestProject\\RecipeSuggestion\\RecipeSuggestion\\RecipeSuggestion.csproj",
         "projectName": "RecipeSuggestion",
-        "projectPath": "C:\\Conestoga\\Application Project (INFO2310)\\RecipeSuggestion\\RecipeSuggestion\\RecipeSuggestion.csproj",
+        "projectPath": "C:\\Users\\Hayden\\Desktop\\Capstone\\TestProject\\RecipeSuggestion\\RecipeSuggestion\\RecipeSuggestion.csproj",
         "packagesPath": "C:\\Users\\Hayden\\.nuget\\packages\\",
-        "outputPath": "C:\\Conestoga\\Application Project (INFO2310)\\RecipeSuggestion\\RecipeSuggestion\\obj\\",
+        "outputPath": "C:\\Users\\Hayden\\Desktop\\Capstone\\TestProject\\RecipeSuggestion\\RecipeSuggestion\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Hayden\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -76,7 +76,7 @@
             },
             {
               "name": "Microsoft.NETCore.App.Host.win-x64",
-              "version": "[5.0.13, 5.0.13]"
+              "version": "[5.0.14, 5.0.14]"
             },
             {
               "name": "Microsoft.NETCore.App.Ref",
@@ -95,7 +95,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.102\\RuntimeIdentifierGraph.json"
         }
       }
     }

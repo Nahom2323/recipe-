@@ -4,12 +4,13 @@ namespace RecipeSuggestion.Models.ViewModel
 {
 	public class LogInViewModel
 	{
-        [Required(ErrorMessage = "Please enter a username.")]
-        [StringLength(255)]
-        public string Username { get; set; }
-
+        [Required(ErrorMessage = "Please enter an email address.")]
+        [MaxLength(200)]
+        [EmailAddress]
+        public string EmailAddress { get; set; }
+        
         [Required(ErrorMessage = "Please enter a password.")]
-        [StringLength(255)]
+        [MaxLength(200)]
         public string Password { get; set; }
 
         public string ReturnUrl { get; set; }
