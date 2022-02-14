@@ -279,3 +279,4 @@ C:\Users\Hayden\Desktop\Capstone\TestProject\RecipeSuggestion\RecipeSuggestion\o
 C:\Users\Hayden\Desktop\Capstone\TestProject\RecipeSuggestion\RecipeSuggestion\obj\Debug\net5.0\ref\RecipeSuggestion.dll
 C:\Users\Hayden\Desktop\Capstone\TestProject\RecipeSuggestion\RecipeSuggestion\obj\Debug\net5.0\RecipeSuggestion.pdb
 C:\Users\Hayden\Desktop\Capstone\TestProject\RecipeSuggestion\RecipeSuggestion\obj\Debug\net5.0\RecipeSuggestion.genruntimeconfig.cache
+C:\Users\Hayden\Desktop\Capstone\TestProject\RecipeSuggestion\RecipeSuggestion\obj\Debug\net5.0\RecipeSuggestion.csproj.AssemblyReference.cache

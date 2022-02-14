@@ -63,7 +63,7 @@ namespace RecipeSuggestion.Controllers
         [HttpPost]
         public async Task<IActionResult> LogIn(LogInViewModel model)
         {
-            /*if (ModelState.IsValid)*/
+            if (ModelState.IsValid)
             {
                 var result = await _signInManager.PasswordSignInAsync(model.EmailAddress, model.Password,
                             isPersistent: model.RememberMe, lockoutOnFailure: false);
@@ -72,11 +72,11 @@ namespace RecipeSuggestion.Controllers
                 {
                     if (!string.IsNullOrEmpty(model.ReturnUrl) && Url.IsLocalUrl(model.ReturnUrl))
                     {
-                        return RedirectToAction("Home", "Index");
+                        return RedirectToAction("Index", "Home");
                     }
                     else
                     {
-                        return RedirectToAction("Home", "Index");
+                        return RedirectToAction("Index", "Home");
                     }
                 }
             }
