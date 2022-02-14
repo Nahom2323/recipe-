@@ -8,9 +8,9 @@ namespace RecipeSuggestion.Models.ViewModel
 {
 	public class SignUpViewModel
 	{
-        [Required(ErrorMessage = "Please enter a username.")]
-        [StringLength(255)]
-        public string Username { get; set; }
+        [Required(ErrorMessage = "Please enter an email address.")]
+        [EmailAddress]
+        public string EmailAddress { get; set; }
 
         [Required(ErrorMessage = "Please enter a password.")]
         [DataType(DataType.Password)]

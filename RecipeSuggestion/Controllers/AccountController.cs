@@ -26,7 +26,7 @@ namespace RecipeSuggestion.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new User { UserName = model.Username };
+                var user = new User { UserName = model.EmailAddress };
                 var result = await _userManager.CreateAsync(user, model.Password);
 
                 if (result.Succeeded)
@@ -63,9 +63,9 @@ namespace RecipeSuggestion.Controllers
         [HttpPost]
         public async Task<IActionResult> LogIn(LogInViewModel model)
         {
-            if (ModelState.IsValid)
+            /*if (ModelState.IsValid)*/
             {
-                var result = await _signInManager.PasswordSignInAsync(model.Username, model.Password,
+                var result = await _signInManager.PasswordSignInAsync(model.EmailAddress, model.Password,
                             isPersistent: model.RememberMe, lockoutOnFailure: false);
 
                 if (result.Succeeded)
