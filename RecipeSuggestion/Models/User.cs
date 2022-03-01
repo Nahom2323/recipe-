@@ -8,6 +8,5 @@ namespace RecipeSuggestion.Models
 	{
 		[NotMapped]
 		public IList<string> RoleNames { get; set; }
-
 	}
 }
