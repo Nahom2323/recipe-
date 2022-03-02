@@ -17,6 +17,7 @@ namespace RecipeSuggestion.Helpers
 		/// <returns>Recipe suggestion result in json format</returns>
 		public static string SearchRecipeByIngredients(string[] ingredients)
 		{
+			// ingredients string array MUST BE PROCESSED BY IngredientStringHelper
 			string apiString = "https://api.spoonacular.com/recipes/findByIngredients" + $"?apiKey={apiKey}" + "&ingredients=";
 			int n = 5;
 			if (ingredients.Length < 5)
