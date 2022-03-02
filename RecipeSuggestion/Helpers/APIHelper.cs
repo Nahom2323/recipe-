@@ -49,6 +49,7 @@ namespace RecipeSuggestion.Helpers
 				}
 			}
 
+			// return empty string if no result found
 			return "";
 		}
 	}
