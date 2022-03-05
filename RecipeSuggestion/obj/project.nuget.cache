@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "Cc9TIueIYduegJAKAUdu0f+QcPz8Qs5ZbIdPI34ePem4kehzJQpZze9p/oSm44bS7zeUjIOzPnxwxcANx2l8Ww==",
+  "dgSpecHash": "j/w5srG6P2V42hj/1wckXkYdCvFieoSMgF2KXJqv76b547Wqj6aY3te3iS+Szu88Oc3IDSauzNBHbCllpHOx9g==",
   "success": true,
   "projectFilePath": "C:\\Conestoga\\Application Project (INFO2310)\\RecipeSuggestion\\RecipeSuggestion\\RecipeSuggestion\\RecipeSuggestion.csproj",
   "expectedPackageFiles": [
@@ -9,8 +9,8 @@
     "C:\\Users\\Hayden\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\5.0.12\\microsoft.aspnetcore.cryptography.internal.5.0.12.nupkg.sha512",
     "C:\\Users\\Hayden\\.nuget\\packages\\microsoft.aspnetcore.cryptography.keyderivation\\5.0.12\\microsoft.aspnetcore.cryptography.keyderivation.5.0.12.nupkg.sha512",
     "C:\\Users\\Hayden\\.nuget\\packages\\microsoft.aspnetcore.identity.entityframeworkcore\\5.0.12\\microsoft.aspnetcore.identity.entityframeworkcore.5.0.12.nupkg.sha512",
-    "C:\\Users\\Hayden\\.nuget\\packages\\microsoft.aspnetcore.jsonpatch\\5.0.12\\microsoft.aspnetcore.jsonpatch.5.0.12.nupkg.sha512",
-    "C:\\Users\\Hayden\\.nuget\\packages\\microsoft.aspnetcore.mvc.newtonsoftjson\\5.0.12\\microsoft.aspnetcore.mvc.newtonsoftjson.5.0.12.nupkg.sha512",
+    "C:\\Users\\Hayden\\.nuget\\packages\\microsoft.aspnetcore.jsonpatch\\5.0.14\\microsoft.aspnetcore.jsonpatch.5.0.14.nupkg.sha512",
+    "C:\\Users\\Hayden\\.nuget\\packages\\microsoft.aspnetcore.mvc.newtonsoftjson\\5.0.14\\microsoft.aspnetcore.mvc.newtonsoftjson.5.0.14.nupkg.sha512",
     "C:\\Users\\Hayden\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
     "C:\\Users\\Hayden\\.nuget\\packages\\microsoft.data.sqlclient\\2.0.1\\microsoft.data.sqlclient.2.0.1.nupkg.sha512",
     "C:\\Users\\Hayden\\.nuget\\packages\\microsoft.data.sqlclient.sni.runtime\\2.0.1\\microsoft.data.sqlclient.sni.runtime.2.0.1.nupkg.sha512",

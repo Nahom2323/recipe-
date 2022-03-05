@@ -31,7 +31,7 @@ namespace RecipeSuggestion
             services.AddMemoryCache();
             services.AddSession();
 
-            services.AddControllersWithViews().AddNewtonsoftJson(); ;
+            services.AddControllersWithViews().AddNewtonsoftJson();
 
             services.AddDbContext<RecipeSuggestionDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("RecipeDbContext")));
 

@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using RecipeSuggestion.Helpers;
 using RecipeSuggestion.Models;
 using System;
 using System.Collections.Generic;

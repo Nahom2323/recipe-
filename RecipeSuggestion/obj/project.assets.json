@@ -58,7 +58,7 @@
           "lib/net5.0/Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll": {}
         }
       },
-      "Microsoft.AspNetCore.JsonPatch/5.0.12": {
+      "Microsoft.AspNetCore.JsonPatch/5.0.14": {
         "type": "package",
         "dependencies": {
           "Microsoft.CSharp": "4.7.0",
@@ -71,10 +71,10 @@
           "lib/netstandard2.0/Microsoft.AspNetCore.JsonPatch.dll": {}
         }
       },
-      "Microsoft.AspNetCore.Mvc.NewtonsoftJson/5.0.12": {
+      "Microsoft.AspNetCore.Mvc.NewtonsoftJson/5.0.14": {
         "type": "package",
         "dependencies": {
-          "Microsoft.AspNetCore.JsonPatch": "5.0.12",
+          "Microsoft.AspNetCore.JsonPatch": "5.0.14",
           "Newtonsoft.Json": "12.0.2",
           "Newtonsoft.Json.Bson": "1.0.2"
         },
@@ -1616,10 +1616,10 @@
         "microsoft.aspnetcore.identity.entityframeworkcore.nuspec"
       ]
     },
-    "Microsoft.AspNetCore.JsonPatch/5.0.12": {
-      "sha512": "YIatogsp7E1zCTlY9H2AG0lxPHHQ7o1Wy9thydeMx++CD81WBCAoeLjSdR4M9+Jz7U3Ujqhl9T1gH7vzNTMI4w==",
+    "Microsoft.AspNetCore.JsonPatch/5.0.14": {
+      "sha512": "6pLJfOtthQEbEXxds3DrAUbl5pvFXIiSdCx5KqYadUrMLrjlLzy0ykAVp28z7HU4X4Ha3brHHNfJU7HNmNcxEA==",
       "type": "package",
-      "path": "microsoft.aspnetcore.jsonpatch/5.0.12",
+      "path": "microsoft.aspnetcore.jsonpatch/5.0.14",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -1629,14 +1629,14 @@
         "lib/net461/Microsoft.AspNetCore.JsonPatch.xml",
         "lib/netstandard2.0/Microsoft.AspNetCore.JsonPatch.dll",
         "lib/netstandard2.0/Microsoft.AspNetCore.JsonPatch.xml",
-        "microsoft.aspnetcore.jsonpatch.5.0.12.nupkg.sha512",
+        "microsoft.aspnetcore.jsonpatch.5.0.14.nupkg.sha512",
         "microsoft.aspnetcore.jsonpatch.nuspec"
       ]
     },
-    "Microsoft.AspNetCore.Mvc.NewtonsoftJson/5.0.12": {
-      "sha512": "YRN5arw9mFDXor6tPVdwMzi8m2V15n3DUFF2iG5QQkBQuR9sKGU4CbyQ3HIjXDln6ChH02K/9HCGsnRtPAv8hg==",
+    "Microsoft.AspNetCore.Mvc.NewtonsoftJson/5.0.14": {
+      "sha512": "NiQRSbOcYZsg8OAdFvcfTsy0mno68qPwY3+QMU6pcJL+rrjyoRQfGSB84uDG4sGTMzCmQ9752yLiJVF8XVdMjA==",
       "type": "package",
-      "path": "microsoft.aspnetcore.mvc.newtonsoftjson/5.0.12",
+      "path": "microsoft.aspnetcore.mvc.newtonsoftjson/5.0.14",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -1644,7 +1644,7 @@
         "THIRD-PARTY-NOTICES.TXT",
         "lib/net5.0/Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll",
         "lib/net5.0/Microsoft.AspNetCore.Mvc.NewtonsoftJson.xml",
-        "microsoft.aspnetcore.mvc.newtonsoftjson.5.0.12.nupkg.sha512",
+        "microsoft.aspnetcore.mvc.newtonsoftjson.5.0.14.nupkg.sha512",
         "microsoft.aspnetcore.mvc.newtonsoftjson.nuspec"
       ]
     },
@@ -5682,7 +5682,7 @@
     "net5.0": [
       "Microsoft.AspNet.WebApi.Client >= 5.2.7",
       "Microsoft.AspNetCore.Identity.EntityFrameworkCore >= 5.0.12",
-      "Microsoft.AspNetCore.Mvc.NewtonsoftJson >= 5.0.12",
+      "Microsoft.AspNetCore.Mvc.NewtonsoftJson >= 5.0.14",
       "Microsoft.EntityFrameworkCore.SqlServer >= 5.0.12",
       "Microsoft.EntityFrameworkCore.Tools >= 5.0.12"
     ]
@@ -5736,7 +5736,7 @@
           },
           "Microsoft.AspNetCore.Mvc.NewtonsoftJson": {
             "target": "Package",
-            "version": "[5.0.12, )"
+            "version": "[5.0.14, )"
           },
           "Microsoft.EntityFrameworkCore.SqlServer": {
             "target": "Package",

@@ -1,6 +1,6 @@
 ﻿namespace RecipeSuggestion.Helpers
 {
-	public static class IngredientStringHelper
+	public static class IngredientHelper
 	{
 		/// <summary>
 		/// Return a string without whitespaces for api use
@@ -17,5 +17,6 @@
 
 			return ingredient;
 		}
+
 	}
 }

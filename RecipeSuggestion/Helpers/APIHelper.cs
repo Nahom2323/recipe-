@@ -1,4 +1,8 @@
-﻿using System.Net.Http;
+﻿using RecipeSuggestion.Models;
+using System.Net.Http;
+using Newtonsoft.Json;
+using System.Diagnostics;
+using System.Collections.Generic;
 
 namespace RecipeSuggestion.Helpers
 {
@@ -6,6 +10,7 @@ namespace RecipeSuggestion.Helpers
 	public static class APIHelper
 	{
 		private static string apiKey = "8a0179ea66554ab69e6ba8d5035ff4c4";
+		
 		/// <summary>
 		/// Accepts up to 5 ingredients, leave empty string if not applicable
 		/// </summary>
@@ -52,6 +57,82 @@ namespace RecipeSuggestion.Helpers
 
 			// return empty string if no result found
 			return "";
+		}
+
+		/// <summary>
+		/// Get a list of ingredients based on search string
+		/// </summary>
+		/// <param name="searchString"></param>
+		/// <returns></returns>
+		public static string AutoCompleteIngredientSearch(string searchString)
+		{
+			string apiString = "https://api.spoonacular.com/food/ingredients/autocomplete" + $"?apiKey={apiKey}" + "&number=4" + "&metaInformation=false" + $"&query={searchString}";
+
+			HttpClient client = new HttpClient();
+			var responseTask = client.GetAsync(apiString);
+			responseTask.Wait();
+			if (responseTask.IsCompleted)
+			{
+				var result = responseTask.Result;
+				if (result.IsSuccessStatusCode)
+				{
+					var message = result.Content.ReadAsStringAsync();
+					message.Wait();
+					return message.Result;
+				}
+			}
+
+			// return empty string if no result found
+			return "";
+		}
+
+		/// <summary>
+		/// Return one random recipe in JSON format
+		/// </summary>
+		/// <returns></returns>
+		public static string GetRandomRecipe()
+		{
+			string apiString = "https://api.spoonacular.com/recipes/random" + $"?apiKey={apiKey}" + "&number=1";
+			
+			HttpClient client = new HttpClient();
+			var responseTask = client.GetAsync(apiString);
+			responseTask.Wait();
+			if (responseTask.IsCompleted)
+			{
+				var result = responseTask.Result;
+				if (result.IsSuccessStatusCode)
+				{
+					var message = result.Content.ReadAsStringAsync();
+					message.Wait();
+					return message.Result;
+				}
+			}
+
+			// return empty string if no result found
+			return "";
+		}
+
+		/// <summary>
+		/// Convert a JSON string to a list of recipes
+		/// </summary>
+		/// <param name="JSONString">the JSON string to be converted</param>
+		/// <returns></returns>
+		public static List<Recipe> ConvertJSONToRecipes(string JSONString)
+		{
+			List<Recipe> recipes = JsonConvert.DeserializeObject<List<Recipe>>(JSONString);
+			return recipes;
+		}
+
+
+		/// <summary>
+		/// Convert a JSON string to a list of ingredients
+		/// </summary>
+		/// <param name="JSONString">the JSON string to be converted</param>
+		/// <returns></returns>
+		public static List<Ingredient> ConvertJSONToIngredients(string JSONString)
+		{
+			List<Ingredient> ingredients = JsonConvert.DeserializeObject<List<Ingredient>>(JSONString);
+			return ingredients;
 		}
 	}
 }
