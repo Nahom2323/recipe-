@@ -104,7 +104,11 @@ namespace RecipeSuggestion.Helpers
 				{
 					var message = result.Content.ReadAsStringAsync();
 					message.Wait();
-					return message.Result;
+					string returnJSONString = message.Result;
+
+					// make string to be JSON format to be converted
+					returnJSONString = returnJSONString.Substring(12, returnJSONString.Length - 14);
+					return returnJSONString;
 				}
 			}
 
@@ -112,15 +116,29 @@ namespace RecipeSuggestion.Helpers
 			return "";
 		}
 
+		/*
 		/// <summary>
-		/// Convert a JSON string to a list of recipes
+		/// ?
 		/// </summary>
 		/// <param name="JSONString">the JSON string to be converted</param>
 		/// <returns></returns>
+		public static List<Old_Recipe> ConvertJSONToRecipes(string JSONString)
+		{
+			List<Old_Recipe> recipes = JsonConvert.DeserializeObject<List<Old_Recipe>>(JSONString);
+			return recipes;
+		}*/
+
 		public static List<Recipe> ConvertJSONToRecipes(string JSONString)
 		{
 			List<Recipe> recipes = JsonConvert.DeserializeObject<List<Recipe>>(JSONString);
 			return recipes;
+		}
+
+		// this method is for random recipe only
+		public static Recipe ConvertJSONToRandomRecipe(string JSONString)
+		{
+			Recipe recipe = JsonConvert.DeserializeObject<Recipe>(JSONString);
+			return recipe;
 		}
 
 
@@ -129,9 +147,9 @@ namespace RecipeSuggestion.Helpers
 		/// </summary>
 		/// <param name="JSONString">the JSON string to be converted</param>
 		/// <returns></returns>
-		public static List<Ingredient> ConvertJSONToIngredients(string JSONString)
+		public static List<Old_Ingredient> ConvertJSONToIngredients(string JSONString)
 		{
-			List<Ingredient> ingredients = JsonConvert.DeserializeObject<List<Ingredient>>(JSONString);
+			List<Old_Ingredient> ingredients = JsonConvert.DeserializeObject<List<Old_Ingredient>>(JSONString);
 			return ingredients;
 		}
 	}

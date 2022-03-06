@@ -2,7 +2,7 @@
 
 namespace RecipeSuggestion.Models
 {
-	public class Ingredient
+	public class ExtendedIngredient
 	{
         public int Id { get; set; }
         public string Aisle { get; set; }

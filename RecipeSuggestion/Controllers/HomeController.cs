@@ -21,7 +21,14 @@ namespace RecipeSuggestion.Controllers
 
         public IActionResult Index()
         {
+            
             return View();
         }
+
+        public void Test()
+		{
+            APIHelper.Test();
+        }
+
     }
 }
