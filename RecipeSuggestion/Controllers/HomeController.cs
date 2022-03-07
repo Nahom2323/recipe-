@@ -35,10 +35,5 @@ namespace RecipeSuggestion.Controllers
             return View();
         }
 
-        public void Test()
-		{
-            //APIHelper.Test();
-        }
-
     }
 }

@@ -63,7 +63,7 @@ namespace RecipeSuggestion.Helpers
 		/// Get a list of ingredients based on search string
 		/// </summary>
 		/// <param name="searchString"></param>
-		/// <returns></returns>
+		/// <returns>a list of ingredients in JSON format</returns>
 		public static string AutoCompleteIngredientSearch(string searchString)
 		{
 			string apiString = "https://api.spoonacular.com/food/ingredients/autocomplete" + $"?apiKey={apiKey}" + "&number=4" + "&metaInformation=false" + $"&query={searchString}";
@@ -116,26 +116,13 @@ namespace RecipeSuggestion.Helpers
 			return "";
 		}
 
-		/*
-		/// <summary>
-		/// ?
-		/// </summary>
-		/// <param name="JSONString">the JSON string to be converted</param>
-		/// <returns></returns>
-		public static List<Old_Recipe> ConvertJSONToRecipes(string JSONString)
-		{
-			List<Old_Recipe> recipes = JsonConvert.DeserializeObject<List<Old_Recipe>>(JSONString);
-			return recipes;
-		}*/
-
-		public static List<Recipe> ConvertJSONToRecipes(string JSONString)
+		public static List<Recipe> ConvertJSONToListOfRecipes(string JSONString)
 		{
 			List<Recipe> recipes = JsonConvert.DeserializeObject<List<Recipe>>(JSONString);
 			return recipes;
 		}
 
-		// this method is for random recipe only
-		public static Recipe ConvertJSONToRandomRecipe(string JSONString)
+		public static Recipe ConvertJSONToOneRecipe(string JSONString)
 		{
 			Recipe recipe = JsonConvert.DeserializeObject<Recipe>(JSONString);
 			return recipe;
@@ -147,10 +134,12 @@ namespace RecipeSuggestion.Helpers
 		/// </summary>
 		/// <param name="JSONString">the JSON string to be converted</param>
 		/// <returns></returns>
-		public static List<Old_Ingredient> ConvertJSONToIngredients(string JSONString)
+		public static List<Ingredient> ConvertJSONToIngredients(string JSONString)
 		{
-			List<Old_Ingredient> ingredients = JsonConvert.DeserializeObject<List<Old_Ingredient>>(JSONString);
+			List<Ingredient> ingredients = JsonConvert.DeserializeObject<List<Ingredient>>(JSONString);
 			return ingredients;
 		}
+
+		
 	}
 }
