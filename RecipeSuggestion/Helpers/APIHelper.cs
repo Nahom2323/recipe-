@@ -40,23 +40,7 @@ namespace RecipeSuggestion.Helpers
 			// remove the last colon
 			apiString = apiString.Remove(apiString.Length - 1);
 
-			// pull api from Spoonacular
-			HttpClient client = new HttpClient();
-			var responseTask = client.GetAsync(apiString);
-			responseTask.Wait();
-			if (responseTask.IsCompleted)
-			{
-				var result = responseTask.Result;
-				if (result.IsSuccessStatusCode)
-				{
-					var message = result.Content.ReadAsStringAsync();
-					message.Wait();
-					return message.Result;
-				}
-			}
-
-			// return empty string if no result found
-			return "";
+			return GetJSONStringFromAPI(apiString);
 		}
 
 		/// <summary>
@@ -68,22 +52,7 @@ namespace RecipeSuggestion.Helpers
 		{
 			string apiString = "https://api.spoonacular.com/food/ingredients/autocomplete" + $"?apiKey={apiKey}" + "&number=4" + "&metaInformation=false" + $"&query={searchString}";
 
-			HttpClient client = new HttpClient();
-			var responseTask = client.GetAsync(apiString);
-			responseTask.Wait();
-			if (responseTask.IsCompleted)
-			{
-				var result = responseTask.Result;
-				if (result.IsSuccessStatusCode)
-				{
-					var message = result.Content.ReadAsStringAsync();
-					message.Wait();
-					return message.Result;
-				}
-			}
-
-			// return empty string if no result found
-			return "";
+			return GetJSONStringFromAPI(apiString);
 		}
 
 		/// <summary>
@@ -94,26 +63,15 @@ namespace RecipeSuggestion.Helpers
 		{
 			string apiString = "https://api.spoonacular.com/recipes/random" + $"?apiKey={apiKey}" + "&number=1";
 			
-			HttpClient client = new HttpClient();
-			var responseTask = client.GetAsync(apiString);
-			responseTask.Wait();
-			if (responseTask.IsCompleted)
-			{
-				var result = responseTask.Result;
-				if (result.IsSuccessStatusCode)
-				{
-					var message = result.Content.ReadAsStringAsync();
-					message.Wait();
-					string returnJSONString = message.Result;
+			string returnJSONString = GetJSONStringFromAPI(apiString);
 
-					// make string to be JSON format to be converted
-					returnJSONString = returnJSONString.Substring(12, returnJSONString.Length - 14);
-					return returnJSONString;
-				}
+			if (returnJSONString != "")
+			{
+				// make string to be JSON format to be converted
+				returnJSONString = returnJSONString.Substring(12, returnJSONString.Length - 14);
 			}
 
-			// return empty string if no result found
-			return "";
+			return returnJSONString;
 		}
 
 		public static List<Recipe> ConvertJSONToListOfRecipes(string JSONString)
@@ -140,6 +98,30 @@ namespace RecipeSuggestion.Helpers
 			return ingredients;
 		}
 
-		
+		/// <summary>
+		/// Main method for getting JSON string using api
+		/// </summary>
+		/// <param name="APIString"></param>
+		/// <returns></returns>
+		public static string GetJSONStringFromAPI(string APIString)
+		{
+			// pull api from Spoonacular
+			HttpClient client = new HttpClient();
+			var responseTask = client.GetAsync(APIString);
+			responseTask.Wait();
+			if (responseTask.IsCompleted)
+			{
+				var result = responseTask.Result;
+				if (result.IsSuccessStatusCode)
+				{
+					var message = result.Content.ReadAsStringAsync();
+					message.Wait();
+					return message.Result;
+				}
+			}
+
+			// return empty string if no result found
+			return "";
+		}
 	}
 }
