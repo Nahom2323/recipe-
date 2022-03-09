@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "dAnv2R8IFxt3OTkp4WY2wharmNqOQPdA2SRODHBzl96PKcyyTfWQn+3gsGj7llIpoGl0+/D+Fn4pALwcASwkYA==",
+  "dgSpecHash": "hOszEqfusIO9EgsImBudwu1bSEys/ZQ+lnWabixnIGOqxqwDJPlWek+5nNvJISN5WOB6f65gRxfisU+vYdeyiA==",
   "success": true,
   "projectFilePath": "C:\\Conestoga\\Application Project (INFO2310)\\RecipeSuggestion\\RS\\RecipeSuggestion\\RecipeSuggestion\\RecipeSuggestion.csproj",
   "expectedPackageFiles": [
@@ -42,8 +42,11 @@
     "C:\\Users\\Hayden\\.nuget\\packages\\microsoft.netcore.targets\\1.1.3\\microsoft.netcore.targets.1.1.3.nupkg.sha512",
     "C:\\Users\\Hayden\\.nuget\\packages\\microsoft.win32.registry\\4.7.0\\microsoft.win32.registry.4.7.0.nupkg.sha512",
     "C:\\Users\\Hayden\\.nuget\\packages\\microsoft.win32.systemevents\\4.7.0\\microsoft.win32.systemevents.4.7.0.nupkg.sha512",
+    "C:\\Users\\Hayden\\.nuget\\packages\\netstandard.library\\2.0.0\\netstandard.library.2.0.0.nupkg.sha512",
     "C:\\Users\\Hayden\\.nuget\\packages\\newtonsoft.json\\12.0.2\\newtonsoft.json.12.0.2.nupkg.sha512",
     "C:\\Users\\Hayden\\.nuget\\packages\\newtonsoft.json.bson\\1.0.2\\newtonsoft.json.bson.1.0.2.nupkg.sha512",
+    "C:\\Users\\Hayden\\.nuget\\packages\\nunit\\3.13.2\\nunit.3.13.2.nupkg.sha512",
+    "C:\\Users\\Hayden\\.nuget\\packages\\nunit3testadapter\\4.2.1\\nunit3testadapter.4.2.1.nupkg.sha512",
     "C:\\Users\\Hayden\\.nuget\\packages\\runtime.native.system\\4.3.0\\runtime.native.system.4.3.0.nupkg.sha512",
     "C:\\Users\\Hayden\\.nuget\\packages\\system.collections\\4.3.0\\system.collections.4.3.0.nupkg.sha512",
     "C:\\Users\\Hayden\\.nuget\\packages\\system.collections.concurrent\\4.3.0\\system.collections.concurrent.4.3.0.nupkg.sha512",
