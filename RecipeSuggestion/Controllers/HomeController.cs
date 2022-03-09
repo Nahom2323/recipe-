@@ -21,7 +21,6 @@ namespace RecipeSuggestion.Controllers
 
         public IActionResult Index()
         {
-            
             return View();
         }
 
