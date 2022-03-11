@@ -5910,11 +5910,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Conestoga\\Application Project (INFO2310)\\RecipeSuggestion\\RS\\RecipeSuggestion\\RecipeSuggestion\\RecipeSuggestion.csproj",
+      "projectUniqueName": "C:\\Conestoga\\Application Project (INFO2310)\\RecipeSuggestion\\RecipeSuggestion\\RecipeSuggestion\\RecipeSuggestion\\RecipeSuggestion.csproj",
       "projectName": "RecipeSuggestion",
-      "projectPath": "C:\\Conestoga\\Application Project (INFO2310)\\RecipeSuggestion\\RS\\RecipeSuggestion\\RecipeSuggestion\\RecipeSuggestion.csproj",
+      "projectPath": "C:\\Conestoga\\Application Project (INFO2310)\\RecipeSuggestion\\RecipeSuggestion\\RecipeSuggestion\\RecipeSuggestion\\RecipeSuggestion.csproj",
       "packagesPath": "C:\\Users\\Hayden\\.nuget\\packages\\",
-      "outputPath": "C:\\Conestoga\\Application Project (INFO2310)\\RecipeSuggestion\\RS\\RecipeSuggestion\\RecipeSuggestion\\obj\\",
+      "outputPath": "C:\\Conestoga\\Application Project (INFO2310)\\RecipeSuggestion\\RecipeSuggestion\\RecipeSuggestion\\RecipeSuggestion\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Hayden\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -5992,7 +5992,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.200\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
       }
     }
   }
