@@ -23,7 +23,12 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-controller="Home" asp-action="About">About</a>
                         </li>
-                        <li class="nav-item"><a class="nav-link text-dark" asp-controller="Home" asp-action="ContactUs">Contact Us</a></li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-controller="Home" asp-action="ContactUs">Contact Us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-controller="Home" asp-action="Result">Result</a>
+                        </li>
                     </ul>
                     <ul class="navbar-nav ml-auto">
                         @inject SignInManager<User> signInManager
@@ -58,18 +63,6 @@
     </div>
 
     <footer class="border-top footer text-muted">
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container">
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between navbar-text">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="About">About</a>
-                        </li>
-                        <li class="nav-item"><a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="ContactUs">Contact Us</a></li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
