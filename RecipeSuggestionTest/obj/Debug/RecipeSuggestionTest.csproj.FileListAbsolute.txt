@@ -17,3 +17,6 @@ C:\Conestoga\Application Project (INFO2310)\RecipeSuggestion\RecipeSuggestion\Re
 C:\Conestoga\Application Project (INFO2310)\RecipeSuggestion\RecipeSuggestion\RecipeSuggestion\RecipeSuggestionTest\obj\Debug\RecipeSuggestionTest.csproj.CopyComplete
 C:\Conestoga\Application Project (INFO2310)\RecipeSuggestion\RecipeSuggestion\RecipeSuggestion\RecipeSuggestionTest\obj\Debug\RecipeSuggestionTest.dll
 C:\Conestoga\Application Project (INFO2310)\RecipeSuggestion\RecipeSuggestion\RecipeSuggestion\RecipeSuggestionTest\obj\Debug\RecipeSuggestionTest.pdb
+C:\Conestoga\Application Project (INFO2310)\RecipeSuggestion\RecipeSuggestion\RecipeSuggestion\RecipeSuggestionTest\bin\Debug\RecipeSuggestionTest.dll.config
+C:\Conestoga\Application Project (INFO2310)\RecipeSuggestion\RecipeSuggestion\RecipeSuggestion\RecipeSuggestionTest\bin\Debug\Newtonsoft.Json.Schema.dll
+C:\Conestoga\Application Project (INFO2310)\RecipeSuggestion\RecipeSuggestion\RecipeSuggestion\RecipeSuggestionTest\bin\Debug\Newtonsoft.Json.Schema.xml
