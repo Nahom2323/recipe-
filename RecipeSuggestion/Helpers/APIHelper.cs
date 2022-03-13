@@ -123,5 +123,18 @@ namespace RecipeSuggestion.Helpers
 			// return empty string if no result found
 			return "";
 		}
+
+		/// <summary>
+		/// Get the exact recipe from an id
+		/// </summary>
+		/// <param name="id"></param>
+		/// <returns></returns>
+		public static Recipe GetRecipeFromId(int id)
+		{
+			string APIString = "https://api.spoonacular.com/recipes/" + id.ToString() + $"/information?apiKey={apiKey}";
+			string JSONString = GetJSONStringFromAPI(APIString);
+			Recipe recipe = ConvertJSONToOneRecipe(JSONString);
+			return recipe;
+		}
 	}
 }

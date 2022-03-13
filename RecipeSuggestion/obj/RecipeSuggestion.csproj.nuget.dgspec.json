@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\juho1\\OneDrive\\바탕 화면\\Recipe\\RecipeSuggestion\\RecipeSuggestion\\RecipeSuggestion.csproj": {}
+    "C:\\Conestoga\\Application Project (INFO2310)\\RecipeSuggestion\\RecipeSuggestion\\RecipeSuggestion\\RecipeSuggestion\\RecipeSuggestion.csproj": {}
   },
   "projects": {
-    "C:\\Users\\juho1\\OneDrive\\바탕 화면\\Recipe\\RecipeSuggestion\\RecipeSuggestion\\RecipeSuggestion.csproj": {
+    "C:\\Conestoga\\Application Project (INFO2310)\\RecipeSuggestion\\RecipeSuggestion\\RecipeSuggestion\\RecipeSuggestion\\RecipeSuggestion.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\juho1\\OneDrive\\바탕 화면\\Recipe\\RecipeSuggestion\\RecipeSuggestion\\RecipeSuggestion.csproj",
+        "projectUniqueName": "C:\\Conestoga\\Application Project (INFO2310)\\RecipeSuggestion\\RecipeSuggestion\\RecipeSuggestion\\RecipeSuggestion\\RecipeSuggestion.csproj",
         "projectName": "RecipeSuggestion",
-        "projectPath": "C:\\Users\\juho1\\OneDrive\\바탕 화면\\Recipe\\RecipeSuggestion\\RecipeSuggestion\\RecipeSuggestion.csproj",
-        "packagesPath": "C:\\Users\\juho1\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\juho1\\OneDrive\\바탕 화면\\Recipe\\RecipeSuggestion\\RecipeSuggestion\\obj\\",
+        "projectPath": "C:\\Conestoga\\Application Project (INFO2310)\\RecipeSuggestion\\RecipeSuggestion\\RecipeSuggestion\\RecipeSuggestion\\RecipeSuggestion.csproj",
+        "packagesPath": "C:\\Users\\Hayden\\.nuget\\packages\\",
+        "outputPath": "C:\\Conestoga\\Application Project (INFO2310)\\RecipeSuggestion\\RecipeSuggestion\\RecipeSuggestion\\RecipeSuggestion\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\juho1\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\Hayden\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -93,7 +89,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.405\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
         }
       }
     }

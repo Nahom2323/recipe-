@@ -9,6 +9,10 @@ namespace RecipeSuggestion.Controllers
 {
 	public class AccountController : Controller
 	{
+
+        private UserManager<User> _userManager;
+        private SignInManager<User> _signInManager;
+
         public AccountController(UserManager<User> userMngr, SignInManager<User> signInMngr)
         {
             _userManager = userMngr;
@@ -85,8 +89,7 @@ namespace RecipeSuggestion.Controllers
             return View(model);
         }
 
-        private UserManager<User> _userManager;
-        private SignInManager<User> _signInManager;
+        
     }
 }
 

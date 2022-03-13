@@ -26,6 +26,7 @@ namespace RecipeSuggestion.Controllers
 
         public IActionResult Result()
         {
+
             return View();
         }
 
