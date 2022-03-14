@@ -9,7 +9,7 @@ namespace RecipeSuggestion.Helpers
 	/* HUY'S PART */
 	public static class APIHelper
 	{
-		private static string apiKey = "b4b3711112c44df7911016052365c1d9";
+		private static string apiKey = "ae2f50a0bc87475cb936025f9ddab5e0";
 
 		/// <summary>
 		/// Accepts up to 5 ingredients, leave empty string if not applicable
