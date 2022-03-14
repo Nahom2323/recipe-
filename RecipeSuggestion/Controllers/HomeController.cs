@@ -27,30 +27,17 @@ namespace RecipeSuggestion.Controllers
         
         public IActionResult Result(string[] ingredients)
         {
-            ingredients = new string[] { "egg", "noodle", "lettuce" };
-
-            // not accept if list of ingredients contains more than 5 ingredients
-            if (ingredients.Length<=0 || ingredients.Length > 5)
-			{
-                return RedirectToAction("Index");
-			}
-
-			// process ingredient string
-			for (int i = 0; i < ingredients.Length; i++)
-			{
-                ingredients[i] = IngredientHelper.FormatIngredientString(ingredients[i]);
-            }
-
-            List<Recipe> recipes = new List<Recipe>();
+            ingredients = new string[] { "potato", "onion" };
             string JSONString = APIHelper.SearchRecipeByIngredients(ingredients);
-            recipes = APIHelper.ConvertJSONToListOfRecipes(JSONString);
-            /*
-			// get detailed information about recipes
+            List<Recipe> recipes = APIHelper.ConvertJSONToListOfRecipes(JSONString);
+
 			for (int i = 0; i < recipes.Count; i++)
 			{
                 recipes[i] = APIHelper.GetRecipeFromId(recipes[i].Id);
-            }*/
-            
+			}
+
+            Debug.WriteLine(recipes[0].Cuisines[0].ToString());
+
             return View(recipes);
         }
 
