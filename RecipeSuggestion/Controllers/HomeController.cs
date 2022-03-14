@@ -27,7 +27,7 @@ namespace RecipeSuggestion.Controllers
         
         public IActionResult Result(string[] ingredients)
         {
-            ingredients = new string[] { "potato", "onion" };
+            ingredients = new string[] { "tomato", "onion" };
             string JSONString = APIHelper.SearchRecipeByIngredients(ingredients);
             List<Recipe> recipes = APIHelper.ConvertJSONToListOfRecipes(JSONString);
 
@@ -35,8 +35,6 @@ namespace RecipeSuggestion.Controllers
 			{
                 recipes[i] = APIHelper.GetRecipeFromId(recipes[i].Id);
 			}
-
-            Debug.WriteLine(recipes[0].Cuisines[0].ToString());
 
             return View(recipes);
         }

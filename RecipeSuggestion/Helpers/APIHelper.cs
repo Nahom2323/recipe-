@@ -10,7 +10,7 @@ namespace RecipeSuggestion.Helpers
 	public static class APIHelper
 	{
 		private static string apiKey = "b4b3711112c44df7911016052365c1d9";
-		
+
 		/// <summary>
 		/// Accepts up to 5 ingredients, leave empty string if not applicable
 		/// </summary>
@@ -82,7 +82,13 @@ namespace RecipeSuggestion.Helpers
 
 		public static Recipe ConvertJSONToOneRecipe(string JSONString)
 		{
-			Recipe recipe = JsonConvert.DeserializeObject<Recipe>(JSONString);
+			var settings = new JsonSerializerSettings
+			{
+				NullValueHandling = NullValueHandling.Ignore,
+				MissingMemberHandling = MissingMemberHandling.Ignore
+			};
+			Recipe recipe = JsonConvert.DeserializeObject<Recipe>(JSONString,settings);
+			
 			return recipe;
 		}
 
@@ -134,6 +140,7 @@ namespace RecipeSuggestion.Helpers
 			string APIString = "https://api.spoonacular.com/recipes/" + id.ToString() + $"/information?apiKey={apiKey}";
 			string JSONString = GetJSONStringFromAPI(APIString);
 			Recipe recipe = ConvertJSONToOneRecipe(JSONString);
+
 			return recipe;
 		}
 
