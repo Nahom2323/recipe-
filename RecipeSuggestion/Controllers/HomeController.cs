@@ -29,12 +29,7 @@ namespace RecipeSuggestion.Controllers
         {
             ingredients = new string[] { "tomato", "onion" };
             string JSONString = APIHelper.SearchRecipeByIngredients(ingredients);
-            List<Recipe> recipes = APIHelper.ConvertJSONToListOfRecipes(JSONString);
-
-			for (int i = 0; i < recipes.Count; i++)
-			{
-                recipes[i] = APIHelper.GetRecipeFromId(recipes[i].Id);
-			}
+            List<ShortRecipe> recipes = APIHelper.ConvertJSONToListOfShortRecipes(JSONString);
 
             return View(recipes);
         }

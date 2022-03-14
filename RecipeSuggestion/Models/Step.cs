@@ -8,7 +8,7 @@ namespace RecipeSuggestion.Models
 
 		public string Steps { get; set; }
 
-		public List<Ingredient> Ingredients { get; set; }
+		public List<IngredientSuggestion> Ingredients { get; set; }
 
 		public List<Equipment> Equipment { get; set; }
 
