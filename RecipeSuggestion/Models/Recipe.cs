@@ -58,7 +58,7 @@ namespace RecipeSuggestion.Models
 
         public string Summary { get; set; }
 
-        public List<object> Cuisines { get; set; }
+        public List<string> Cuisines { get; set; }
 
         public List<string> DishTypes { get; set; }
 

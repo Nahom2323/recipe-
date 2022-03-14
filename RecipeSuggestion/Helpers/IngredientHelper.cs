@@ -9,6 +9,7 @@
 		/// <returns></returns>
 		public static string FormatIngredientString(string ingredient)
 		{
+
 			// remove leading and trailing white space
 			ingredient = ingredient.Trim();
 

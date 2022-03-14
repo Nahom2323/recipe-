@@ -136,5 +136,16 @@ namespace RecipeSuggestion.Helpers
 			Recipe recipe = ConvertJSONToOneRecipe(JSONString);
 			return recipe;
 		}
+
+		public static void Test()
+		{
+			string a = SearchRecipeByIngredients(new string[] {"egg", "noodle", "lettuce"});
+			List<Recipe> r = ConvertJSONToListOfRecipes(a);
+
+			foreach (Recipe recipe in r)
+			{
+				Debug.WriteLine(recipe.Cuisines);
+			}
+		}
 	}
 }
