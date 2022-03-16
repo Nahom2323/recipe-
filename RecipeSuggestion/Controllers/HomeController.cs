@@ -44,6 +44,10 @@ namespace RecipeSuggestion.Controllers
             return View();
         }
 
+        public IActionResult Detail ()
+        {
+            return View();
+        }
         public void Test()
 		{
             APIHelper.Test();
