@@ -2,6 +2,7 @@
 using Microsoft.Extensions.Logging;
 using RecipeSuggestion.Helpers;
 using RecipeSuggestion.Models;
+using RecipeSuggestion.Models.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -19,15 +20,48 @@ namespace RecipeSuggestion.Controllers
             _logger = logger;
         }
 
+        [HttpGet]
         public IActionResult Index()
         {
             return View();
         }
 
-        
-        public IActionResult Result(string[] ingredients)
+        [HttpPost]
+        public IActionResult Result(string ingredient1, string ingredient2, string ingredient3, string ingredient4, string ingredient5)
         {
-            ingredients = new string[] { "tomato", "onion" };
+            // I tried to convert 5 ingredients to an array
+            List<string> temporaryList = new List<string>();
+            temporaryList.Add(ingredient1);
+            temporaryList.Add(ingredient2);
+            temporaryList.Add(ingredient3);
+            temporaryList.Add(ingredient4);
+            temporaryList.Add(ingredient5);
+
+            int numberOfIngredientsUserEntered = 0;
+			foreach (string ingredient in temporaryList)
+			{
+                if (ingredient != null)
+				{
+                    if (ingredient.Trim() != "")
+                    {
+                        numberOfIngredientsUserEntered++;
+                    }
+                }
+			}
+
+            string[] ingredients = new string[numberOfIngredientsUserEntered];
+            int n = 0;
+            for (int i = 0; i < temporaryList.Count; i++)
+			{
+                if (temporaryList[i] != null)
+                {
+                    if (temporaryList[i] != "")
+                    {
+                        ingredients[n++] = temporaryList[i].Trim();
+                    }
+                }
+			}
+
             string JSONString = APIHelper.SearchRecipeByIngredients(ingredients);
             List<ShortRecipe> recipes = APIHelper.ConvertJSONToListOfShortRecipes(JSONString);
 
@@ -43,10 +77,5 @@ namespace RecipeSuggestion.Controllers
         {
             return View();
         }
-
-        public void Test()
-		{
-            APIHelper.Test();
-		}
     }
 }
