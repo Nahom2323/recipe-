@@ -48,6 +48,7 @@ namespace RecipeSuggestion.Models
 
         public int ReadyInMinutes { get; set; }
 
+        // how many dishes you cook with this recipe
         public int Servings { get; set; }
 
         public string SourceUrl { get; set; }

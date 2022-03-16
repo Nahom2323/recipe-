@@ -2,6 +2,7 @@
 <div class="container">
        @foreach (ShortRecipe recipe in Model)
            {
+               <a asp-area="" asp-controller="Home" asp-action="Index">
             <div class="thumbnail card shadow mb-5">
                 <div class="clearfix">
                     <img src="@recipe.Image" alt="@recipe.Title" style="width:30%" class="float-left mr-2">
@@ -29,5 +30,6 @@
                     </p>
                 </div>
             </div>
+            </a>
            }
 </div>

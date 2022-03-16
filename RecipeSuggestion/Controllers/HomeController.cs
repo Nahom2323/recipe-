@@ -77,5 +77,10 @@ namespace RecipeSuggestion.Controllers
         {
             return View();
         }
+
+        public IActionResult Detail()
+		{
+            return View();
+		}
     }
 }
