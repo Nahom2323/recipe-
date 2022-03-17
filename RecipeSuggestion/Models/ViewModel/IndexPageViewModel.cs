@@ -7,5 +7,7 @@
 		public string ingredient3;
 		public string ingredient4;
 		public string ingredient5;
+
+		public Recipe RandomRecipeSuggestion;
 	}
 }

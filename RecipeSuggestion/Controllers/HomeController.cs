@@ -23,7 +23,13 @@ namespace RecipeSuggestion.Controllers
         [HttpGet]
         public IActionResult Index()
         {
-            return View();
+            string randomRecipeString = APIHelper.GetRandomRecipe();
+            Recipe randomRecipe=APIHelper.ConvertJSONToOneRecipe(randomRecipeString);
+
+            IndexPageViewModel ipvm = new IndexPageViewModel();
+            ipvm.RandomRecipeSuggestion = randomRecipe;
+
+            return View(ipvm);
         }
 
         [HttpPost]

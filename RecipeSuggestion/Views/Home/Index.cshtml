@@ -42,12 +42,39 @@
     <div class="col-4">
         <div class="img-thumbnail card shadow">
             <div class="card-body by-light">
-                <h5 class="card-title">Daily Suggestion</h5>
-                <img src="~/Images/spaghetti.jpg" alt="Spaghetti image" class="img-fluid"/>
-                <p class="card-text">Image and description</p>
-                <button class="btn btn-primary">
+                <h5 class="card-title">Random Suggestion</h5>
+
+                <!-- Recipe Title -->
+                <p class="card-text" style="font-weight=bold;">@Model.RandomRecipeSuggestion.Title</p>
+
+                <!-- Image -->
+                <img src="@Model.RandomRecipeSuggestion.Image" alt="@Model.RandomRecipeSuggestion.Title" class="img-fluid" />
+
+                <!-- Ingredients -->
+                <p>Ingredients</p>
+                @{
+                    for (var i = 0; i < @Model.RandomRecipeSuggestion.ExtendedIngredients.Count; i++)
+                    {
+                        <p>@Model.RandomRecipeSuggestion.ExtendedIngredients[i].Name</p>
+                    }
+                }
+                <!-- Servings -->
+                <p>Servings: @Model.RandomRecipeSuggestion.Servings</p>
+
+                <!-- Cuisines -->
+                <p>
+                    Cuisines:
+                    @{
+                        for (var i = 0; i < @Model.RandomRecipeSuggestion.Cuisines.Count; i++)
+                    {
+                        <p>@Model.RandomRecipeSuggestion.Cuisines[i]</p>
+                    }
+                    }
+                </p>
+                
+                <a class="btn btn-info" role="button" asp-action="Detail">
                     See more
-                </button>
+                </a>
             </div>
         </div>
     </div>
