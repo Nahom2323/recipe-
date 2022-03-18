@@ -6,7 +6,7 @@
 <h2 class="mb-5">Enter the ingredients to search recipes!</h2>
 <div class="row">
     <div class="col-8">
-        
+
         <form method="post" asp-action="Result">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
@@ -42,39 +42,43 @@
     <div class="col-4">
         <div class="img-thumbnail card shadow">
             <div class="card-body by-light">
-                <h5 class="card-title">Random Suggestion</h5>
+                <h3 class="card-title">Random Suggestion</h3>
 
                 <!-- Recipe Title -->
-                <p class="card-text" style="font-weight=bold;">@Model.RandomRecipeSuggestion.Title</p>
+                <h6 class="card-text">@Model.RandomRecipeSuggestion.Title</h6>
 
                 <!-- Image -->
                 <img src="@Model.RandomRecipeSuggestion.Image" alt="@Model.RandomRecipeSuggestion.Title" class="img-fluid" />
 
                 <!-- Ingredients -->
-                <p>Ingredients</p>
-                @{
-                    for (var i = 0; i < @Model.RandomRecipeSuggestion.ExtendedIngredients.Count; i++)
-                    {
-                        <p>@Model.RandomRecipeSuggestion.ExtendedIngredients[i].Name</p>
+                <p>
+                    <strong>Ingredients:</strong>
+                    @{
+                        for (var i = 0; i < @Model.RandomRecipeSuggestion.ExtendedIngredients.Count; i++)
+                        {
+                            @Model.RandomRecipeSuggestion.ExtendedIngredients[i].Name
+
+                            @if (i < @Model.RandomRecipeSuggestion.ExtendedIngredients.Count - 1)
+                            {
+                                <span>, </span>
+                            }
+                        }
                     }
-                }
-                <!-- Servings -->
-                <p>Servings: @Model.RandomRecipeSuggestion.Servings</p>
+                </p>
 
                 <!-- Cuisines -->
                 <p>
-                    Cuisines:
+                    <strong>Cuisines:</strong>
                     @{
                         for (var i = 0; i < @Model.RandomRecipeSuggestion.Cuisines.Count; i++)
-                    {
-                        <p>@Model.RandomRecipeSuggestion.Cuisines[i]</p>
-                    }
+                        {
+                                @Model.RandomRecipeSuggestion.Cuisines[i]
+                        }
                     }
                 </p>
-                
-                <a class="btn btn-info" role="button" asp-action="Detail">
-                    See more
-                </a>
+
+                <!-- Servings -->
+                <p><strong>Servings:</strong>@Model.RandomRecipeSuggestion.Servings</p>
             </div>
         </div>
     </div>
