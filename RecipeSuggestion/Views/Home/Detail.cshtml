@@ -1,26 +1,62 @@
-﻿<div class="thumbnail card shadow">
+﻿@model Recipe
+
+<div class="thumbnail card shadow">
     <div class="clearfix">
-        <img src="~/Images/spaghetti.jpg" alt="Pasta" style="width:50%" class="float-right">
+        <img src="@Model.Image" alt="@Model.Title" style="width:50%" class="float-right">
+        <h4>@Model.Title</h4>
 
-        <h5>Measurement:</h5>
+        <h5>Ingredients:</h5>
+        <p>
+            @{
+                for (var i = 0; i < @Model.ExtendedIngredients.Count; i++)
+                {
+                    @Model.ExtendedIngredients[i].Name
 
-        <p>50g sugar, 50g salt, 50g butter</p>
+                    @if (i < @Model.ExtendedIngredients.Count - 1)
+                    {
+                        <span>, </span>
+                    }
+                }
+            }
+        </p>
 
         <h5>How to cook?</h5>
         <ol>
-            <li>do what</li>
-            <li>do what</li>
-            <li>do what</li>
-            <li>do what</li>
-            <li>do what</li>
-            <li>do what</li>
-            <li>do what</li>
+           @for (var i = 0; i < @Model.AnalyzedInstructions[0].Steps.Count; i++)
+          {
+              <li>
+                <!--Step number (1, 2, 3, etc.)-->
+                @Model.AnalyzedInstructions[0].Steps[i].Number
+              </li>
+              <li>
+                <!-- Step description -->
+                @Model.AnalyzedInstructions[0].Steps[i].Steps
+              </li>
+          }
         </ol>
 
-        <h5>Pricing per serving</h5>
+        <h5>Pricing per serving: @Model.PricePerServing</h5>
 
-        <h5>Health Score</h5>
+        <h5>Health Score: @Model.HealthScore</h5>
 
-        <h5>Cuisine</h5>
+        <h5>
+                    <strong>Cuisines:</strong>
+                    @{
+                        if (@Model.Cuisines.Count==0)
+                        {
+                            @Html.Raw("N/A");
+                            
+                        }
+                        else
+                        {
+                            for (var i = 0; i < @Model.Cuisines.Count; i++)
+                            {
+                                @Model.Cuisines[i]
+                            }
+                        }
+
+                    }
+                </h5>
+           <h5>Source: <a href="@Model.SourceUrl">@Model.SourceName</a>, <a href="@Model.SpoonacularSourceUrl">Spoonacular API</a></h5>
     </div>
 </div>

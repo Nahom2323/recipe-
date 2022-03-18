@@ -84,9 +84,11 @@ namespace RecipeSuggestion.Controllers
             return View();
         }
 
-        public IActionResult Detail()
+        public IActionResult Detail(int recipeId)
 		{
-            return View();
+            recipeId = 646660;
+            Recipe recipe = APIHelper.GetRecipeFromId(recipeId);
+            return View(recipe);
 		}
     }
 }
