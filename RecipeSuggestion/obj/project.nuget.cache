@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "/3ZSeF1vfYoXxTFpxHZffvimYB2bR7H5OBZkt7p3QifARMeFnXWk1lROZSM3OQ1VpDHC4YX+0RwaXqTILkNgeQ==",
+  "dgSpecHash": "cKD5wv/9bJEmFr5aSPkgRJ9mMR6bmisRk+DZ/15iDsLg1zeRGB07cVRtVShOae2+9+vloauGWiyCQx6HB+8xHw==",
   "success": true,
-  "projectFilePath": "C:\\Conestoga\\Application Project (INFO2310)\\RecipeSuggestion\\RS\\RecipeSuggestion\\RecipeSuggestion\\RecipeSuggestion.csproj",
+  "projectFilePath": "C:\\Conestoga\\Application Project (INFO2310)\\RecipeSuggestion\\RecipeSuggestion\\RecipeSuggestion\\RecipeSuggestion.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Hayden\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\Hayden\\.nuget\\packages\\microsoft.aspnet.webapi.client\\5.2.7\\microsoft.aspnet.webapi.client.5.2.7.nupkg.sha512",

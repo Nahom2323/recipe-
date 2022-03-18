@@ -6,6 +6,6 @@ namespace RecipeSuggestion.Models
 	{
 		public string Name { get; set; }
 
-		public List<Step> Steps { get; set; }
+		public List<Steps> Steps { get; set; }
 	}
 }

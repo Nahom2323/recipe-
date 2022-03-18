@@ -25,15 +25,13 @@
            @for (var i = 0; i < @Model.AnalyzedInstructions[0].Steps.Count; i++)
           {
               <li>
-                <!--Step number (1, 2, 3, etc.)-->
-                @Model.AnalyzedInstructions[0].Steps[i].Number
-              </li>
-              <li>
                 <!-- Step description -->
-                @Model.AnalyzedInstructions[0].Steps[i].Steps
+                @Model.AnalyzedInstructions[0].Steps[i].Step
               </li>
           }
         </ol>
+
+        <h5>Servings: @Model.Servings</h5>
 
         <h5>Pricing per serving: @Model.PricePerServing</h5>
 
@@ -51,7 +49,7 @@
                         {
                             for (var i = 0; i < @Model.Cuisines.Count; i++)
                             {
-                                @Model.Cuisines[i]
+                                @Model.Cuisines[i] @Html.Raw(", ");
                             }
                         }
 

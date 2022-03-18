@@ -2,12 +2,12 @@
 
 namespace RecipeSuggestion.Models
 {
-	public class Step
+	public class Steps
 	{
 		public int Number { get; set; }
 
 		// step description
-		public string Steps { get; set; }
+		public string Step { get; set; }
 
 		public List<IngredientSuggestion> Ingredients { get; set; }
 
