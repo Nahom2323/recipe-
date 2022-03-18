@@ -972,3 +972,12 @@ C:\Conestoga\Application Project (INFO2310)\RecipeSuggestion\RecipeSuggestion\Re
 C:\Conestoga\Application Project (INFO2310)\RecipeSuggestion\RecipeSuggestion\RecipeSuggestion\obj\Debug\net5.0\Razor\Views\Home\Result.cshtml.g.cs
 C:\Users\juho1\OneDrive\바탕 화면\Recipe\RecipeSuggestion\RecipeSuggestion\obj\Debug\net5.0\Razor\Views\Home\Detail.cshtml.g.cs
 C:\Conestoga\Application Project (INFO2310)\RecipeSuggestion\RecipeSuggestion\RecipeSuggestion\obj\Debug\net5.0\Razor\Views\Home\Detail.cshtml.g.cs
+C:\Conestoga\Application Project (INFO2310)\RecipeSuggestion\RS\RecipeSuggestion\RecipeSuggestion\bin\Debug\net5.0\NUnit3.TestAdapter.dll
+C:\Conestoga\Application Project (INFO2310)\RecipeSuggestion\RS\RecipeSuggestion\RecipeSuggestion\bin\Debug\net5.0\NUnit3.TestAdapter.pdb
+C:\Conestoga\Application Project (INFO2310)\RecipeSuggestion\RS\RecipeSuggestion\RecipeSuggestion\bin\Debug\net5.0\nunit.engine.dll
+C:\Conestoga\Application Project (INFO2310)\RecipeSuggestion\RS\RecipeSuggestion\RecipeSuggestion\bin\Debug\net5.0\nunit.engine.api.dll
+C:\Conestoga\Application Project (INFO2310)\RecipeSuggestion\RS\RecipeSuggestion\RecipeSuggestion\bin\Debug\net5.0\nunit.engine.core.dll
+C:\Conestoga\Application Project (INFO2310)\RecipeSuggestion\RS\RecipeSuggestion\RecipeSuggestion\bin\Debug\net5.0\testcentric.engine.metadata.dll
+C:\Conestoga\Application Project (INFO2310)\RecipeSuggestion\RS\RecipeSuggestion\RecipeSuggestion\bin\Debug\net5.0\nunit.framework.dll
+C:\Conestoga\Application Project (INFO2310)\RecipeSuggestion\RS\RecipeSuggestion\RecipeSuggestion\obj\Debug\net5.0\Razor\Views\Home\Detail.cshtml.g.cs
+C:\Conestoga\Application Project (INFO2310)\RecipeSuggestion\RS\RecipeSuggestion\RecipeSuggestion\obj\Debug\net5.0\Razor\Views\Home\Result.cshtml.g.cs
