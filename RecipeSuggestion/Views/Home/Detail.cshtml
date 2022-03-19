@@ -10,25 +10,28 @@
             @{
                 for (var i = 0; i < @Model.ExtendedIngredients.Count; i++)
                 {
-                    @Model.ExtendedIngredients[i].Name
-
-                    @if (i < @Model.ExtendedIngredients.Count - 1)
+                    if (i != @Model.ExtendedIngredients.Count - 1)
                     {
-                        <span>, </span>
+                        <span>@Model.ExtendedIngredients[i].Name, </span>
                     }
+                    else
+                    {
+                        <span>@Model.ExtendedIngredients[i].Name</span>
+                    }
+
                 }
             }
         </p>
 
         <h5 class="m-2">How to cook?</h5>
         <ol class="m-2">
-           @for (var i = 0; i < @Model.AnalyzedInstructions[0].Steps.Count; i++)
-          {
-              <li>
-                <!-- Step description -->
-                @Model.AnalyzedInstructions[0].Steps[i].Step
-              </li>
-          }
+            @for (var i = 0; i < @Model.AnalyzedInstructions[0].Steps.Count; i++)
+            {
+                <li>
+                    <!-- Step description -->
+                    @Model.AnalyzedInstructions[0].Steps[i].Step
+                </li>
+            }
         </ol>
 
         <h5 class="m-2">Servings: @Model.Servings</h5>
@@ -38,23 +41,30 @@
         <h5 class="m-2">Health Score: @Model.HealthScore</h5>
 
         <h5 class="m-2">
-                    <strong>Cuisines:</strong>
-                    @{
-                        if (@Model.Cuisines.Count==0)
+            <strong>Cuisines:</strong>
+            @{
+                if (@Model.Cuisines.Count == 0)
+                {
+                    @Html.Raw("N/A");
+
+                }
+                else
+                {
+                    for (var i = 0; i < @Model.Cuisines.Count; i++)
+                    {
+                        if (i != @Model.Cuisines.Count - 1)
                         {
-                            @Html.Raw("N/A");
-                            
+                            <span>@Model.Cuisines[i], </span>
                         }
                         else
                         {
-                            for (var i = 0; i < @Model.Cuisines.Count; i++)
-                            {
-                                @Model.Cuisines[i] @Html.Raw(", ");
+                            <span>@Model.Cuisines[i]</span>
                             }
                         }
 
                     }
-                </h5>
-           <h5 class="m-2">Source: <a href="@Model.SourceUrl">@Model.SourceName</a>, <a href="@Model.SpoonacularSourceUrl">Spoonacular API</a></h5>
+                }
+            </h5>
+        <h5 class="m-2">Source: <a href="@Model.SourceUrl">@Model.SourceName</a>, <a href="@Model.SpoonacularSourceUrl">Spoonacular API</a></h5>
     </div>
 </div>

@@ -5912,11 +5912,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\juho1\\Desktop\\Capstone\\RecipeSuggestion\\RecipeSuggestion\\RecipeSuggestion.csproj",
+      "projectUniqueName": "C:\\Users\\juho1\\Desktop\\Recipe\\RecipeSuggestion\\RecipeSuggestion\\RecipeSuggestion.csproj",
       "projectName": "RecipeSuggestion",
-      "projectPath": "C:\\Users\\juho1\\Desktop\\Capstone\\RecipeSuggestion\\RecipeSuggestion\\RecipeSuggestion.csproj",
+      "projectPath": "C:\\Users\\juho1\\Desktop\\Recipe\\RecipeSuggestion\\RecipeSuggestion\\RecipeSuggestion.csproj",
       "packagesPath": "C:\\Users\\juho1\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\juho1\\Desktop\\Capstone\\RecipeSuggestion\\RecipeSuggestion\\obj\\",
+      "outputPath": "C:\\Users\\juho1\\Desktop\\Recipe\\RecipeSuggestion\\RecipeSuggestion\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
