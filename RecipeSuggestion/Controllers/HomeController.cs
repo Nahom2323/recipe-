@@ -24,7 +24,7 @@ namespace RecipeSuggestion.Controllers
         public IActionResult Index()
         {
             string randomRecipeString = APIHelper.GetRandomRecipe();
-            Recipe randomRecipe=APIHelper.ConvertJSONToOneRecipe(randomRecipeString);
+            Recipe randomRecipe = APIHelper.ConvertJSONToOneRecipe(randomRecipeString);
 
             IndexPageViewModel ipvm = new IndexPageViewModel();
             ipvm.RandomRecipeSuggestion = randomRecipe;
@@ -35,6 +35,7 @@ namespace RecipeSuggestion.Controllers
         [HttpPost]
         public IActionResult Result(string ingredient1, string ingredient2, string ingredient3, string ingredient4, string ingredient5)
         {
+
             // I tried to convert 5 ingredients to an array
             List<string> temporaryList = new List<string>();
             temporaryList.Add(ingredient1);
@@ -44,21 +45,21 @@ namespace RecipeSuggestion.Controllers
             temporaryList.Add(ingredient5);
 
             int numberOfIngredientsUserEntered = 0;
-			foreach (string ingredient in temporaryList)
-			{
+            foreach (string ingredient in temporaryList)
+            {
                 if (ingredient != null)
-				{
+                {
                     if (ingredient.Trim() != "")
                     {
                         numberOfIngredientsUserEntered++;
                     }
                 }
-			}
+            }
 
             string[] ingredients = new string[numberOfIngredientsUserEntered];
             int n = 0;
             for (int i = 0; i < temporaryList.Count; i++)
-			{
+            {
                 if (temporaryList[i] != null)
                 {
                     if (temporaryList[i] != "")
@@ -66,12 +67,13 @@ namespace RecipeSuggestion.Controllers
                         ingredients[n++] = temporaryList[i].Trim();
                     }
                 }
-			}
+            }
 
             string JSONString = APIHelper.SearchRecipeByIngredients(ingredients);
             List<ShortRecipe> recipes = APIHelper.ConvertJSONToListOfShortRecipes(JSONString);
 
             return View(recipes);
+
         }
 
         public IActionResult About()
@@ -85,9 +87,9 @@ namespace RecipeSuggestion.Controllers
         }
 
         public IActionResult Detail(int recipeId)
-		{
+        {
             Recipe recipe = APIHelper.GetRecipeFromId(recipeId);
             return View(recipe);
-		}
+        }
     }
 }

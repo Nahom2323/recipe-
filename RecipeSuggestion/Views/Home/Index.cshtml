@@ -8,7 +8,7 @@
     <div class="col-8">
 
         <form method="post" asp-action="Result">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div asp-validation-summary="All" class="text-danger"></div>
 
             <div class="form-group">
                 <label for="ingredient1">Ingredient 1:</label>
@@ -56,12 +56,15 @@
                     @{
                         for (var i = 0; i < @Model.RandomRecipeSuggestion.ExtendedIngredients.Count; i++)
                         {
-                            @Model.RandomRecipeSuggestion.ExtendedIngredients[i].Name
-
-                            @if (i < @Model.RandomRecipeSuggestion.ExtendedIngredients.Count - 1)
+                            if (i != @Model.RandomRecipeSuggestion.ExtendedIngredients.Count - 1)
                             {
-                                <span>, </span>
+                                <span>@Model.RandomRecipeSuggestion.ExtendedIngredients[i].Name, </span>
                             }
+                            else
+                            {
+                                <span>@Model.RandomRecipeSuggestion.ExtendedIngredients[i].Name</span>
+                            }
+
                         }
                     }
                 </p>
@@ -70,10 +73,10 @@
                 <p>
                     <strong>Cuisines:</strong>
                     @{
-                        if (@Model.RandomRecipeSuggestion.Cuisines.Count==0)
+                        if (@Model.RandomRecipeSuggestion.Cuisines.Count == 0)
                         {
                             @Html.Raw("N/A");
-                            
+
                         }
                         else
                         {
