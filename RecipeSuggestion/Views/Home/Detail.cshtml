@@ -3,10 +3,10 @@
 <div class="thumbnail card shadow">
     <div class="clearfix">
         <img src="@Model.Image" alt="@Model.Title" style="width:50%" class="float-right">
-        <h4>@Model.Title</h4>
+        <h4 class="m-2">@Model.Title</h4>
 
-        <h5>Ingredients:</h5>
-        <p>
+        <h5 class="m-2">Ingredients:</h5>
+        <p class="m-2">
             @{
                 for (var i = 0; i < @Model.ExtendedIngredients.Count; i++)
                 {
@@ -20,8 +20,8 @@
             }
         </p>
 
-        <h5>How to cook?</h5>
-        <ol>
+        <h5 class="m-2">How to cook?</h5>
+        <ol class="m-2">
            @for (var i = 0; i < @Model.AnalyzedInstructions[0].Steps.Count; i++)
           {
               <li>
@@ -31,13 +31,13 @@
           }
         </ol>
 
-        <h5>Servings: @Model.Servings</h5>
+        <h5 class="m-2">Servings: @Model.Servings</h5>
 
-        <h5>Pricing per serving: @Model.PricePerServing</h5>
+        <h5 class="m-2">Pricing per serving: @Model.PricePerServing</h5>
 
-        <h5>Health Score: @Model.HealthScore</h5>
+        <h5 class="m-2">Health Score: @Model.HealthScore</h5>
 
-        <h5>
+        <h5 class="m-2">
                     <strong>Cuisines:</strong>
                     @{
                         if (@Model.Cuisines.Count==0)
@@ -55,6 +55,6 @@
 
                     }
                 </h5>
-           <h5>Source: <a href="@Model.SourceUrl">@Model.SourceName</a>, <a href="@Model.SpoonacularSourceUrl">Spoonacular API</a></h5>
+           <h5 class="m-2">Source: <a href="@Model.SourceUrl">@Model.SourceName</a>, <a href="@Model.SpoonacularSourceUrl">Spoonacular API</a></h5>
     </div>
 </div>

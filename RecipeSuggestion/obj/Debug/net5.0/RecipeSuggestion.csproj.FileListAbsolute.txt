@@ -1073,3 +1073,12 @@ C:\Users\juho1\OneDrive\바탕 화면\Capstone\RecipeSuggestion\RecipeSuggestion
 C:\Users\juho1\OneDrive\바탕 화면\Capstone\RecipeSuggestion\RecipeSuggestion\obj\Debug\net5.0\ref\RecipeSuggestion.dll
 C:\Users\juho1\OneDrive\바탕 화면\Capstone\RecipeSuggestion\RecipeSuggestion\obj\Debug\net5.0\RecipeSuggestion.pdb
 C:\Users\juho1\OneDrive\바탕 화면\Capstone\RecipeSuggestion\RecipeSuggestion\obj\Debug\net5.0\RecipeSuggestion.genruntimeconfig.cache
+C:\Users\juho1\Desktop\Capstone\RecipeSuggestion\RecipeSuggestion\bin\Debug\net5.0\NUnit3.TestAdapter.dll
+C:\Users\juho1\Desktop\Capstone\RecipeSuggestion\RecipeSuggestion\bin\Debug\net5.0\NUnit3.TestAdapter.pdb
+C:\Users\juho1\Desktop\Capstone\RecipeSuggestion\RecipeSuggestion\bin\Debug\net5.0\nunit.engine.dll
+C:\Users\juho1\Desktop\Capstone\RecipeSuggestion\RecipeSuggestion\bin\Debug\net5.0\nunit.engine.api.dll
+C:\Users\juho1\Desktop\Capstone\RecipeSuggestion\RecipeSuggestion\bin\Debug\net5.0\nunit.engine.core.dll
+C:\Users\juho1\Desktop\Capstone\RecipeSuggestion\RecipeSuggestion\bin\Debug\net5.0\testcentric.engine.metadata.dll
+C:\Users\juho1\Desktop\Capstone\RecipeSuggestion\RecipeSuggestion\bin\Debug\net5.0\nunit.framework.dll
+C:\Users\juho1\Desktop\Capstone\RecipeSuggestion\RecipeSuggestion\obj\Debug\net5.0\Razor\Views\Home\Detail.cshtml.g.cs
+C:\Users\juho1\Desktop\Capstone\RecipeSuggestion\RecipeSuggestion\obj\Debug\net5.0\Razor\Views\Home\Result.cshtml.g.cs
