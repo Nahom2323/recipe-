@@ -6,7 +6,6 @@
 <h2 class="mb-5" style="color: #0000ff;">Enter the ingredients to search recipes!</h2>
 <div class="row">
     <div class="col-8">
-
         <form method="post" asp-action="Result">
             <div asp-validation-summary="All" class="text-danger"></div>
 
@@ -39,6 +38,9 @@
             </button>
         </form>
     </div>
+
+    <!-- Side bar -->
+
     <div class="col-4">
         <div class="img-thumbnail card shadow">
             <div class="card-body by-light">
@@ -91,6 +93,9 @@
 
                 <!-- Servings -->
                 <p><strong>Servings: </strong>@Model.RandomRecipeSuggestion.Servings</p>
+
+                <!-- See more button! -->
+                <a class="btn btn-primary" asp-action="Detail" asp-route-recipeId="@Model.RandomRecipeSuggestion.Id">See more</a>
             </div>
         </div>
     </div>
