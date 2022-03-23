@@ -19,10 +19,10 @@
                             <a class="navbar-brand" style="font-size:x-large" asp-controller="Home" asp-action="Index">Recipe Suggestion</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark"style="font-size:x-large" asp-controller="Home" asp-action="About">About</a>
+                            <a class="nav-link text-dark" style="font-size:x-large" asp-controller="Home" asp-action="About">About</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark"style="font-size:x-large" asp-controller="Home" asp-action="ContactUs">Contact Us</a>
+                            <a class="nav-link text-dark" style="font-size:x-large" asp-controller="Home" asp-action="ContactUs">Contact Us</a>
                         </li>
                     </ul>
                     <ul class="navbar-nav ml-auto">
@@ -37,13 +37,25 @@
                                            class="nav-link text-dark" />
                                 </form>
                             </li>
-                            <li class="nav-item"><a class="nav-link text-dark" asp-controller="Home" asp-action="Index">Account</a></li>
- }
+                            @*<li class="nav-item"><a class="nav-link text-dark" asp-controller="Home" asp-action="Index">Account</a></li>*@
+
+
+                            <li class="nav item dropdown">
+                                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Account
+                                </button>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <a class="dropdown-item" href="#">Action</a>
+                                    <a class="dropdown-item" href="#">Another action</a>
+                                    <a class="dropdown-item" href="#">Something else here</a>
+                                </div>
+                            </li>
+                        }
                         else
                         {
                             <li class="nav-item"><a class="nav-link text-dark" style="font-size:x-large; " asp-controller="Account" asp-action="SignUp">Sign Up</a></li>
-                            <li class="nav-item"><a class="nav-link text-dark" style="font-size:x-large;"  asp-controller="Account" asp-action="LogIn">Log In</a></li>
-}
+                            <li class="nav-item"><a class="nav-link text-dark" style="font-size:x-large;" asp-controller="Account" asp-action="LogIn">Log In</a></li>
+                        }
 
                     </ul>
                 </div>
