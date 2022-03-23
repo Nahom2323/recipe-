@@ -1266,3 +1266,5 @@ C:\Users\juho1\Desktop\Recipe\RecipeSuggestion\RecipeSuggestion\obj\Debug\net5.0
 C:\Users\juho1\Desktop\Recipe\RecipeSuggestion\RecipeSuggestion\obj\Debug\net5.0\ref\RecipeSuggestion.dll
 C:\Users\juho1\Desktop\Recipe\RecipeSuggestion\RecipeSuggestion\obj\Debug\net5.0\RecipeSuggestion.pdb
 C:\Users\juho1\Desktop\Recipe\RecipeSuggestion\RecipeSuggestion\obj\Debug\net5.0\RecipeSuggestion.genruntimeconfig.cache
+C:\Users\juho1\OneDrive\바탕 화면\recipe\RecipeSuggestion\RecipeSuggestion\obj\Debug\net5.0\Razor\Views\Home\RecentView.cshtml.g.cs
+C:\Users\juho1\OneDrive\바탕 화면\recipe\RecipeSuggestion\RecipeSuggestion\obj\Debug\net5.0\Razor\Views\Home\SavedRecipe.cshtml.g.cs

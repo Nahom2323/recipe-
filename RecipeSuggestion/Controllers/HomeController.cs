@@ -21,6 +21,19 @@ namespace RecipeSuggestion.Controllers
         }
 
         [HttpGet]
+        public IActionResult RecentView()
+        {
+            return View();
+        }
+
+        [HttpGet]
+        public IActionResult SavedRecipe()
+        {
+            return View();
+        }
+
+
+        [HttpGet]
         public IActionResult Index()
         {
             string randomRecipeString = APIHelper.GetRandomRecipe();
