@@ -9,7 +9,7 @@ namespace RecipeSuggestion.Helpers
 	/* HUY'S PART */
 	public static class APIHelper
 	{
-		private static string apiKey = "d7b1d65daf3b4846b069e98155097e21";
+		private static string apiKey = "8a0179ea66554ab69e6ba8d5035ff4c4";
 
 		/// <summary>
 		/// Accepts up to 5 ingredients, leave empty string if not applicable
@@ -76,6 +76,11 @@ namespace RecipeSuggestion.Helpers
 
 		public static List<Recipe> ConvertJSONToListOfRecipes(string JSONString)
 		{
+			var settings = new JsonSerializerSettings
+			{
+				NullValueHandling = NullValueHandling.Ignore,
+				MissingMemberHandling = MissingMemberHandling.Ignore
+			};
 			List<Recipe> recipes = JsonConvert.DeserializeObject<List<Recipe>>(JSONString);
 			return recipes;
 		}
@@ -148,15 +153,18 @@ namespace RecipeSuggestion.Helpers
 			return recipe;
 		}
 
-		public static void Test()
+		public static List<Recipe> GetRecipeFromMultipleIds(List<int> ids)
 		{
-			string a = SearchRecipeByIngredients(new string[] {"egg", "noodle", "lettuce"});
-			List<Recipe> r = ConvertJSONToListOfRecipes(a);
-
-			foreach (Recipe recipe in r)
+			string APIString = $"https://api.spoonacular.com/recipes/informationBulk?apiKey={apiKey}&ids=";
+			foreach (int id in ids)
 			{
-				Debug.WriteLine(recipe.Cuisines);
+				APIString += id.ToString() + ",";
 			}
+			APIString = APIString.Remove(APIString.Length-1,1);
+
+			string JSONString = GetJSONStringFromAPI(APIString);
+			List<Recipe> recipes = ConvertJSONToListOfRecipes(JSONString);
+			return recipes;
 		}
 	}
 }

@@ -102,9 +102,20 @@ namespace RecipeSuggestion.Controllers
 			}
 
             string JSONString = APIHelper.SearchRecipeByIngredients(ingredients);
-            List<ShortRecipe> recipes = APIHelper.ConvertJSONToListOfShortRecipes(JSONString);
+            List<ShortRecipe> shortRecipes = APIHelper.ConvertJSONToListOfShortRecipes(JSONString);
+            List<int> ids= new List<int>();
+			foreach (ShortRecipe shortRecipe in shortRecipes)
+			{
+                ids.Add(shortRecipe.Id);
+			}
 
-            return View(recipes);
+            List<Recipe> recipes = APIHelper.GetRecipeFromMultipleIds(ids);
+
+            ResultPageViewModel rpvm = new ResultPageViewModel();
+            rpvm.ShortRecipes = shortRecipes;
+            rpvm.Recipes = recipes;
+
+            return View(rpvm);
         }
 
         public IActionResult About()
