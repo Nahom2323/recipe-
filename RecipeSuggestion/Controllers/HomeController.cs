@@ -7,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace RecipeSuggestion.Controllers
@@ -48,7 +49,6 @@ namespace RecipeSuggestion.Controllers
         [HttpPost]
         public IActionResult Result(string ingredient1, string ingredient2, string ingredient3, string ingredient4, string ingredient5)
         {
-
             // I tried to convert 5 ingredients to an array
             List<string> temporaryList = new List<string>();
             temporaryList.Add(ingredient1);
@@ -58,6 +58,7 @@ namespace RecipeSuggestion.Controllers
             temporaryList.Add(ingredient5);
 
             int numberOfIngredientsUserEntered = 0;
+
             foreach (string ingredient in temporaryList)
             {
                 if (ingredient != null)
@@ -69,6 +70,13 @@ namespace RecipeSuggestion.Controllers
                 }
             }
 
+            // check if the user entered at least 1 ingredient
+            if (numberOfIngredientsUserEntered == 0)
+            {
+                TempData["Error_NoIngredientsEntered"] = "Please enter at least 1 ingredient.";
+                return RedirectToAction("Index", "Home");
+            }
+            
             string[] ingredients = new string[numberOfIngredientsUserEntered];
             int n = 0;
             for (int i = 0; i < temporaryList.Count; i++)
@@ -82,11 +90,21 @@ namespace RecipeSuggestion.Controllers
                 }
             }
 
+            // check if input strings are all valid
+            Regex rg = new Regex(new string("^[A-Za-z ]+$"));
+			foreach (string item in ingredients)
+			{
+                if (!rg.IsMatch(item))
+				{
+                    TempData["Error_NoNumberNoSpecialCharacter"] = "Numbers and special charater is not allowed";
+                    return RedirectToAction("Index", "Home");
+                }
+			}
+
             string JSONString = APIHelper.SearchRecipeByIngredients(ingredients);
             List<ShortRecipe> recipes = APIHelper.ConvertJSONToListOfShortRecipes(JSONString);
 
             return View(recipes);
-
         }
 
         public IActionResult About()
