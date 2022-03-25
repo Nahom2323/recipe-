@@ -9,11 +9,14 @@ using System.Diagnostics;
 using System.Linq;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
+using Newtonsoft.Json;
 
 namespace RecipeSuggestion.Controllers
 {
     public class HomeController : Controller
     {
+        
         private readonly ILogger<HomeController> _logger;
 
         public HomeController(ILogger<HomeController> logger)
@@ -110,10 +113,18 @@ namespace RecipeSuggestion.Controllers
 			}
 
             List<Recipe> recipes = APIHelper.GetRecipeFromMultipleIds(ids);
-
-            ResultPageViewModel rpvm = new ResultPageViewModel();
-            rpvm.ShortRecipes = shortRecipes;
-            rpvm.Recipes = recipes;
+            List<bool> isRecipeDisplayed= new List<bool>();
+			for (int i = 0; i < recipes.Count; i++)
+			{
+                isRecipeDisplayed.Add(true);
+			}
+            ResultPageViewModel rpvm = new ResultPageViewModel{
+                ShortRecipes = shortRecipes,
+                Recipes = recipes,
+                IsRecipeDisplayed = isRecipeDisplayed
+            };
+            string rpvmJSON = JsonConvert.SerializeObject(rpvm);
+            HttpContext.Session.SetString("currentResult", rpvmJSON);
 
             return View(rpvm);
         }
@@ -133,5 +144,66 @@ namespace RecipeSuggestion.Controllers
             Recipe recipe = APIHelper.GetRecipeFromId(recipeId);
             return View(recipe);
         }
+
+        [HttpPost]
+        public IActionResult Filter(ResultPageViewModel rpvm)
+		{
+            string currentResultJSON = HttpContext.Session.GetString("currentResult");
+            ResultPageViewModel oldModel = JsonConvert.DeserializeObject<ResultPageViewModel>(currentResultJSON);
+            
+            rpvm.ShortRecipes = oldModel.ShortRecipes;
+            rpvm.Recipes = oldModel.Recipes;
+            rpvm.IsRecipeDisplayed = oldModel.IsRecipeDisplayed;
+
+            for (int i = 0; i < oldModel.ShortRecipes.Count; i++)
+            {
+                rpvm.IsRecipeDisplayed[i] = true;
+            }
+
+            if (rpvm.isVegan)
+			{
+				for (int i = 0; i < rpvm.Recipes.Count; i++)
+				{
+                    if (!rpvm.Recipes[i].Vegan)
+					{
+                        rpvm.IsRecipeDisplayed[i] = false;
+					}
+				}
+			}
+
+            if (rpvm.isGlutenFree)
+            {
+                for (int i = 0; i < rpvm.Recipes.Count; i++)
+                {
+                    if (!rpvm.Recipes[i].GlutenFree)
+                    {
+                        rpvm.IsRecipeDisplayed[i] = false;
+                    }
+                }
+            }
+
+            if (rpvm.isDairyFree)
+            {
+                for (int i = 0; i < rpvm.Recipes.Count; i++)
+                {
+                    if (!rpvm.Recipes[i].DairyFree)
+                    {
+                        rpvm.IsRecipeDisplayed[i] = false;
+                    }
+                }
+            }
+
+            if (rpvm.isHealthy)
+            {
+                for (int i = 0; i < rpvm.Recipes.Count; i++)
+                {
+                    if (!rpvm.Recipes[i].VeryHealthy)
+                    {
+                        rpvm.IsRecipeDisplayed[i] = false;
+                    }
+                }
+            }
+            return View("Result", rpvm);
+		}
     }
 }

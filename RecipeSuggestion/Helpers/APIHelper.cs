@@ -9,7 +9,14 @@ namespace RecipeSuggestion.Helpers
 	/* HUY'S PART */
 	public static class APIHelper
 	{
-		private static string apiKey = "8a0179ea66554ab69e6ba8d5035ff4c4";
+		private static string apiKey = "b4b3711112c44df7911016052365c1d9";
+
+		// this settings may help prevent error in covertting null to int
+		public static JsonSerializerSettings settings = new JsonSerializerSettings
+		{
+			NullValueHandling = NullValueHandling.Ignore,
+			MissingMemberHandling = MissingMemberHandling.Ignore
+		};
 
 		/// <summary>
 		/// Accepts up to 5 ingredients, leave empty string if not applicable
@@ -76,12 +83,7 @@ namespace RecipeSuggestion.Helpers
 
 		public static List<Recipe> ConvertJSONToListOfRecipes(string JSONString)
 		{
-			var settings = new JsonSerializerSettings
-			{
-				NullValueHandling = NullValueHandling.Ignore,
-				MissingMemberHandling = MissingMemberHandling.Ignore
-			};
-			List<Recipe> recipes = JsonConvert.DeserializeObject<List<Recipe>>(JSONString);
+			List<Recipe> recipes = JsonConvert.DeserializeObject<List<Recipe>>(JSONString, settings);
 			return recipes;
 		}
 		public static List<ShortRecipe> ConvertJSONToListOfShortRecipes(string JSONString)
@@ -91,13 +93,7 @@ namespace RecipeSuggestion.Helpers
 		}
 		public static Recipe ConvertJSONToOneRecipe(string JSONString)
 		{
-			var settings = new JsonSerializerSettings
-			{
-				NullValueHandling = NullValueHandling.Ignore,
-				MissingMemberHandling = MissingMemberHandling.Ignore
-			};
 			Recipe recipe = JsonConvert.DeserializeObject<Recipe>(JSONString,settings);
-			
 			return recipe;
 		}
 

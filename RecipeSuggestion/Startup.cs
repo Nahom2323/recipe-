@@ -28,8 +28,16 @@ namespace RecipeSuggestion
         {
             services.AddRouting(options => options.LowercaseUrls = true);
 
+            /* for cache, cookie and session */
             services.AddMemoryCache();
-            services.AddSession();
+			services.AddSession(options =>
+		        {
+                    // change idle timeout to 5 minutes - default is 20 minutes
+                    options.IdleTimeout = TimeSpan.FromSeconds(60 * 5);
+                    options.Cookie.HttpOnly = false;
+                    options.Cookie.IsEssential = true;
+                }
+            );
 
             services.AddControllersWithViews().AddNewtonsoftJson();
 

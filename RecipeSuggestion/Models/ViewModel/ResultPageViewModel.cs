@@ -12,5 +12,7 @@ namespace RecipeSuggestion.Models.ViewModel
 		public bool isGlutenFree { get; set; }
 		public bool isDairyFree { get; set; }
 		public bool isHealthy { get; set; }
+
+		public List<bool> IsRecipeDisplayed { get; set; }
 	}
 }

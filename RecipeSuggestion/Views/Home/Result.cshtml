@@ -4,7 +4,7 @@
 }
 
 <p>Filter</p>
-<form method="post" asp-action="Result">
+<form method="post" asp-action="Filter">
     <label>Vegan</label>
     <input type="checkbox" title="Vegan" asp-for="isVegan" class="form-check" />
             
@@ -23,39 +23,41 @@
 <div class="container">
     @for (var i = 0; i < Model.ShortRecipes.Count; i++)
    {
-       <a asp-controller="Home" asp-action="Detail" asp-route-recipeId="@Model.ShortRecipes[i].Id">
-            <div class="thumbnail card shadow mb-5">
-                <div class="clearfix">
-                    <img src="@Model.ShortRecipes[i].Image" alt="@Model.ShortRecipes[i].Title" style="width:30%" class="float-left mr-2">
-                    <h5 class="mt-3">@Model.ShortRecipes[i].Title</h5>
-                    <p class="mt-3">
-                        <strong>Missed Ingredients:</strong>
-                        @for (var j = 0; j < Model.ShortRecipes[i].MissedIngredients.Count; j++)
-                        {
-                            if (i != Model.ShortRecipes[i].MissedIngredients.Count - 1)
+        if (Model.IsRecipeDisplayed[i])
+        {
+            <a asp-controller="Home" asp-action="Detail" asp-route-recipeId="@Model.ShortRecipes[i].Id">
+                <div class="thumbnail card shadow mb-5">
+                    <div class="clearfix">
+                        <img src="@Model.ShortRecipes[i].Image" alt="@Model.ShortRecipes[i].Title" style="width:30%" class="float-left mr-2">
+                        <h5 class="mt-3">@Model.ShortRecipes[i].Title</h5>
+                        <p class="mt-3">
+                            <strong>Missed Ingredients:</strong>
+                            @for (var j = 0; j < Model.ShortRecipes[i].MissedIngredients.Count; j++)
                             {
-                                <span>@Model.ShortRecipes[i].MissedIngredients[j].Name, </span>
+                                if (i != Model.ShortRecipes[i].MissedIngredients.Count - 1)
+                                {
+                                    <span>@Model.ShortRecipes[i].MissedIngredients[j].Name, </span>
+                                }
+                                else
+                                {
+                                    <span>@Model.ShortRecipes[i].MissedIngredients[j].Name</span>
+                                }
                             }
-                            else
+                        </p>
+                        <p class="mt-3">
+                            <strong>Used Ingredients:</strong>
+                            @for (var k = 0; k < Model.ShortRecipes[i].UsedIngredientCount; k++)
                             {
-                                <span>@Model.ShortRecipes[i].MissedIngredients[j].Name</span>
+                                if (k != Model.ShortRecipes[i].UsedIngredientCount - 1)
+                                {
+                                    <span>@Model.ShortRecipes[i].UsedIngredients[k].Name, </span>
+                                }
+                                else
+                                {
+                                    <span>@Model.ShortRecipes[i].UsedIngredients[k].Name</span>
+                                }
                             }
-                        }
-                    </p>
-                    <p class="mt-3">
-                        <strong>Used Ingredients:</strong>
-                        @for (var k = 0; k < Model.ShortRecipes[i].UsedIngredientCount; k++)
-                        {
-                            if (k != Model.ShortRecipes[i].UsedIngredientCount - 1)
-                            {
-                                <span>@Model.ShortRecipes[i].UsedIngredients[k].Name, </span>
-                            }
-                            else
-                            {
-                                <span>@Model.ShortRecipes[i].UsedIngredients[k].Name</span>
-                            }
-                        }
-                    </p>
+                        </p>
                     <p>Cook time: @Model.Recipes[i].ReadyInMinutes</p>
                     <p>Vegan: @Model.Recipes[i].Vegan</p>
                     <p>Gluten Free: @Model.Recipes[i].GlutenFree</p>
@@ -63,47 +65,23 @@
                     <p>Healthy?: @Model.Recipes[i].VeryHealthy</p>
                 </div>
             </div>
-        </a>
-   }
+            </a>
+            }
+        }
 
-   @*
-    @foreach (ShortRecipe recipe in Model.ShortRecipes)
-    {
-        <a asp-controller="Home" asp-action="Detail" asp-route-recipeId="@recipe.Id">
-            <div class="thumbnail card shadow mb-5">
-                <div class="clearfix">
-                    <img src="@recipe.Image" alt="@recipe.Title" style="width:30%" class="float-left mr-2">
-                    <h5 class="mt-3">@recipe.Title</h5>
-                    <p class="mt-3">
-                        <strong>Missed Ingredients:</strong>
-                        @for (var i = 0; i < recipe.MissedIngredients.Count; i++)
-                        {
-                            if (i != recipe.MissedIngredients.Count - 1)
-                            {
-                                <span>@recipe.MissedIngredients[i].Name, </span>
-                            }
-                            else
-                            {
-                                <span>@recipe.MissedIngredients[i].Name</span>
-                            }
-                        }
-                    </p>
-                    <p class="mt-3">
-                        <strong>Used Ingredients:</strong>
-                        @for (var i = 0; i < recipe.UsedIngredientCount; i++)
-                        {
-                            if (i != recipe.UsedIngredientCount - 1)
-                            {
-                                <span>@recipe.UsedIngredients[i].Name, </span>
-                            }
-                            else
-                            {
-                                <span>@recipe.UsedIngredients[i].Name</span>
-                            }
-                        }
-                    </p>
-                </div>
-            </div>
-        </a>
-    }*@
+        <!-- If there is no record shown, a message would be displayed -->
+    @{
+        int n = 0;
+        foreach (bool b in @Model.IsRecipeDisplayed)
+        {
+            if (b)
+            {
+                n++;
+            }
+        }
+        if (n == 0)
+        {
+            <h3>Sorry, no recipes match. Please change filter criterion.</h3>
+        }
+    }
 </div>
