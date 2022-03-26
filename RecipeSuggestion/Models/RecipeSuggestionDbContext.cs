@@ -9,17 +9,17 @@ namespace RecipeSuggestion.Models
 {
 	public class RecipeSuggestionDbContext : IdentityDbContext<User>
     {
-		public RecipeSuggestionDbContext(DbContextOptions options) : base(options)
-		{
+		public RecipeSuggestionDbContext(DbContextOptions options) : base(options) { }
 
-		}
+        // informations is not a grammar error, just to keep class name and property name distinct
+        public DbSet<UserInformation> UserInformations { get; set; }
 
 		protected override void OnModelCreating(ModelBuilder modelBuilder)
 		{
 			// call base class version to setup Indentity relations:
 			base.OnModelCreating(modelBuilder);
 		}
-
+        /*
         public static async Task CreateAdminUser(IServiceProvider serviceProvider)
         {
             UserManager<User> userManager =
@@ -48,5 +48,6 @@ namespace RecipeSuggestion.Models
                 }
             }
         }
+        */
     }
 }

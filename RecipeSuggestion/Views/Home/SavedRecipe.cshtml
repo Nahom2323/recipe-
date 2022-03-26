@@ -1,7 +1,20 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
-
+﻿@model List<Recipe>
 <h1>Saved Recipe</h1>
+
+<!-- Back-end processing, please contact Huy before modifing -->
+@{
+    // if there is actually at least 1 recipe
+    if (Model.Count>0){
+        foreach (Recipe recipe in Model)
+        {
+            <p>@recipe.Title</p>
+            // HTML code here
+        }
+    }
+    // in case no recipes are in save list
+    else
+    {
+        <p>ViewBag.NoRecentlyViewedRecipeError</p>
+    }
+}
+<!-- ---------- -->

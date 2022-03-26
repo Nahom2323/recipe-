@@ -11,33 +11,28 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Newtonsoft.Json;
+using Microsoft.AspNetCore.Authorization;
+using System.Security.Claims;
+using Microsoft.AspNetCore.Identity;
 
 namespace RecipeSuggestion.Controllers
 {
     public class HomeController : Controller
     {
         
+        private readonly UserManager<User> _userManager;
         private readonly ILogger<HomeController> _logger;
+        private RecipeSuggestionDbContext context;
 
-        public HomeController(ILogger<HomeController> logger)
-        {
-            _logger = logger;
-        }
+		public HomeController(ILogger<HomeController> logger, UserManager<User> userManager, RecipeSuggestionDbContext recipeSuggestionDbContext)
+		{
+			_logger = logger;
+			_userManager = userManager;
+			context = recipeSuggestionDbContext;
+		}
 
-        [HttpGet]
-        public IActionResult RecentView()
-        {
-            return View();
-        }
+		[HttpGet]
 
-        [HttpGet]
-        public IActionResult SavedRecipe()
-        {
-            return View();
-        }
-
-
-        [HttpGet]
         public IActionResult Index()
         {
             string randomRecipeString = APIHelper.GetRandomRecipe();
@@ -46,6 +41,7 @@ namespace RecipeSuggestion.Controllers
             IndexPageViewModel ipvm = new IndexPageViewModel();
             ipvm.RandomRecipeSuggestion = randomRecipe;
 
+            
             return View(ipvm);
         }
 
@@ -139,9 +135,41 @@ namespace RecipeSuggestion.Controllers
             return View();
         }
 
+        
         public IActionResult Detail(int recipeId)
         {
             Recipe recipe = APIHelper.GetRecipeFromId(recipeId);
+
+            /* For recently viewed */
+            if (HttpContext.Session.GetString("recentlyViewedRecipe") != null)
+            {
+                string recentlyViewedRecipeString = HttpContext.Session.GetString("recentlyViewedRecipe");
+
+                // if recipe is already in the string, remove it (to make sure the recipe is in the oldest-newest sequence )
+                if (recentlyViewedRecipeString.Contains(recipeId.ToString()))
+				{
+                    if (!recentlyViewedRecipeString.EndsWith(recipeId.ToString()))
+                    {
+                        recentlyViewedRecipeString = recentlyViewedRecipeString.Remove(
+                        startIndex: recentlyViewedRecipeString.IndexOf(recipeId.ToString()),
+                        count: recipeId.ToString().Length + 1);
+
+                        // newest recipe stays at the end of the string
+                        recentlyViewedRecipeString += "," + recipeId.ToString();
+                    }
+                }
+				else
+				{
+                    // newest recipe stays at the end of the string
+                    recentlyViewedRecipeString += "," + recipeId.ToString();
+                }
+                HttpContext.Session.SetString("recentlyViewedRecipe", recentlyViewedRecipeString);
+            }
+			else
+			{
+                HttpContext.Session.SetString("recentlyViewedRecipe", recipeId.ToString());
+            }
+
             return View(recipe);
         }
 
@@ -205,5 +233,59 @@ namespace RecipeSuggestion.Controllers
             }
             return View("Result", rpvm);
 		}
+
+        // this method is for adding recipe to save list and redirect back to detail page
+        [Authorize]
+        public IActionResult SaveRecipe(int recipeId)
+		{
+            
+
+            return RedirectToAction("Detail", new { recipeId = recipeId });
+        }
+
+        // this method is for SaveRecipe View Page
+        [Authorize]
+        [HttpGet]
+        public IActionResult SavedRecipe()
+        {
+            List<Recipe> recipes = new List<Recipe>();
+
+            _userManager.GetUserId(HttpContext.User);
+
+
+            if (HttpContext.Session.GetString("savedRecipe") != null)
+            {
+                string savedRecipeString = HttpContext.Session.GetString("savedRecipe");
+                string[] recipeIdStringArray = savedRecipeString.Split(',');
+                
+				foreach (string recipeId in recipeIdStringArray)
+				{
+                    recipes.Add(APIHelper.GetRecipeFromId(int.Parse(recipeId)));
+				}
+            }
+			else
+			{
+                ViewBag.NoSaveRecipeError = "No recipes in save list. Try to add one.";
+			}
+
+            return View(recipes);
+        }
+
+        [HttpGet]
+        public IActionResult RecentView()
+        {
+            List<Recipe> recipes = new List<Recipe>();
+            if (HttpContext.Session.GetString("recentlyViewedRecipe") != null)
+            {
+                string recentlyViewedRecipeString = HttpContext.Session.GetString("recentlyViewedRecipe");
+                string[] recipeIdStringArray = recentlyViewedRecipeString.Split(',');
+
+                foreach (string recipeId in recipeIdStringArray)
+                {
+                    recipes.Add(APIHelper.GetRecipeFromId(int.Parse(recipeId)));
+                }
+            }
+            return View(recipes);
+        }
     }
 }
