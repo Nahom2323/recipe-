@@ -1,20 +1,28 @@
 ﻿@model List<Recipe>
 <h1>Saved Recipe</h1>
 
+@if (TempData["SavedRecipeMessage"]!=null)
+{
+    <p class="alert alert-primary" role="alert">@TempData["SavedRecipeMessage"]</p>
+}
+
 <!-- Back-end processing, please contact Huy before modifing -->
 @{
     // if there is actually at least 1 recipe
     if (Model.Count>0){
         foreach (Recipe recipe in Model)
         {
-            <p>@recipe.Title</p>
-            // HTML code here
+            <div>
+                <a asp-action="Detail" asp-route-recipeId=@recipe.Id>@recipe.Title</a>
+                <a asp-action="RemoveRecipeFromSaveList" asp-route-recipeId=@recipe.Id>Remove this recipe</a>
+            </div>
+            // more HTML code here
         }
     }
     // in case no recipes are in save list
     else
     {
-        <p>ViewBag.NoRecentlyViewedRecipeError</p>
+        <p class="alert alert-primary" role="alert">Hmm, you have not saved any recipes yet. Please try to save one.</p>
     }
 }
 <!-- ---------- -->

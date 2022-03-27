@@ -19,6 +19,8 @@ namespace RecipeSuggestion.Models
 			// call base class version to setup Indentity relations:
 			base.OnModelCreating(modelBuilder);
 		}
+
+
         /*
         public static async Task CreateAdminUser(IServiceProvider serviceProvider)
         {

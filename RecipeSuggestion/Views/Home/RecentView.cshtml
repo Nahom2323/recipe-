@@ -10,14 +10,14 @@
         {
             foreach (Recipe recipe in Model)
             {
-                <p>@recipe.Title</p>
+                <a asp-action="Detail" asp-route-recipeId=@recipe.Id>@recipe.Title</a>
                 // HTML code here
             }
         }
         // in case no recipes are in recently viewed list
         else
         {
-            <p>No recently viewed recipes.</p>
+            <p class="alert alert-primary" role="alert">No recently viewed recipes.</p>
         }
 
     }

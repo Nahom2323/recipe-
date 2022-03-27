@@ -5,7 +5,7 @@
 <!-- Show a message if the recipe is saved sucessfully -->
 @if (TempData["Message"]!=null)
 {
-    <p>@TempData["Message"]</p>
+    <p class="alert alert-primary" role="alert">@TempData["Message"]</p>
 }
 <div class="thumbnail card shadow">
     <div class="clearfix">

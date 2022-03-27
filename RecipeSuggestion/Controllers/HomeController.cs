@@ -22,7 +22,7 @@ namespace RecipeSuggestion.Controllers
         
         private readonly UserManager<User> _userManager;
         private readonly ILogger<HomeController> _logger;
-        private RecipeSuggestionDbContext context;
+        private RecipeSuggestionDbContext context { get; set; }
 
 		public HomeController(ILogger<HomeController> logger, UserManager<User> userManager, RecipeSuggestionDbContext recipeSuggestionDbContext)
 		{
@@ -237,9 +237,47 @@ namespace RecipeSuggestion.Controllers
         // this method is for adding recipe to save list and redirect back to detail page
         [Authorize]
         public IActionResult SaveRecipe(int recipeId)
-		{
-            
+        {
+            string userId = _userManager.GetUserId(HttpContext.User);
+            UserInformation userInformation = context.UserInformations.Find(userId);
 
+            // if user already has at least 1 saved recipe
+            if (userInformation != null)
+            {
+                if (userInformation.SavedRecipeIds.Contains(recipeId.ToString()))
+				{
+                    TempData["Message"] = "This recipe is already in save list!";
+
+                }
+				else
+				{
+                    string newSaveRecipeIds = userInformation.SavedRecipeIds + "," + recipeId.ToString();
+                    UserInformation newUserInformation = new UserInformation
+                    {
+                        UserId = userId,
+                        SavedRecipeIds = newSaveRecipeIds
+                    };
+
+                    context.Remove(userInformation);
+                    context.Add(newUserInformation);
+                    context.SaveChanges();
+                    TempData["Message"] = "Recipe added to saved list";
+                }
+            }
+
+            // if user has nothing in saved recipe list
+            else
+            {
+                UserInformation newUserInformation = new UserInformation
+                {
+                    UserId = userId,
+                    SavedRecipeIds = recipeId.ToString()
+                };
+                context.Add(newUserInformation);
+                context.SaveChanges();
+                TempData["Message"] = "Recipe added to saved list";
+            }
+            
             return RedirectToAction("Detail", new { recipeId = recipeId });
         }
 
@@ -249,26 +287,51 @@ namespace RecipeSuggestion.Controllers
         public IActionResult SavedRecipe()
         {
             List<Recipe> recipes = new List<Recipe>();
+            string userID = _userManager.GetUserId(HttpContext.User);
+            UserInformation userInformation = context.UserInformations.Find(userID);
 
-            _userManager.GetUserId(HttpContext.User);
-
-
-            if (HttpContext.Session.GetString("savedRecipe") != null)
-            {
-                string savedRecipeString = HttpContext.Session.GetString("savedRecipe");
-                string[] recipeIdStringArray = savedRecipeString.Split(',');
-                
-				foreach (string recipeId in recipeIdStringArray)
-				{
-                    recipes.Add(APIHelper.GetRecipeFromId(int.Parse(recipeId)));
-				}
-            }
-			else
+            if (userInformation != null)
 			{
-                ViewBag.NoSaveRecipeError = "No recipes in save list. Try to add one.";
+                string[] savedRecipeIds = userInformation.SavedRecipeIds.Split(',');
+                foreach (string savedRecipeId in savedRecipeIds)
+				{
+                    recipes.Add(APIHelper.GetRecipeFromId(int.Parse(savedRecipeId)));
+				}
 			}
 
+            // the "reverse" makes newest item in the saved list appears first
+            if (recipes.Count > 0)
+			{
+                recipes.Reverse();
+            }
+
             return View(recipes);
+        }
+
+        [Authorize]
+        public IActionResult RemoveRecipeFromSaveList(int recipeId)
+		{
+            string userID = _userManager.GetUserId(HttpContext.User);
+            UserInformation userInformation = context.UserInformations.Find(userID);
+
+            if (userInformation != null)
+			{
+                if (userInformation.SavedRecipeIds.Contains(recipeId.ToString()))
+                {
+                    string[] savedRecipeIds = userInformation.SavedRecipeIds.Split(',');
+                    List<string> saveRecipeIdsList = savedRecipeIds.ToList();
+                    if (saveRecipeIdsList.Remove(recipeId.ToString()))
+					{
+                        TempData["SavedRecipeMessage"] = "Recipe removed from saved list.";
+                    }
+					else
+					{
+                        TempData["SavedRecipeMessage"] = "There's an error when the recipe being removed.";
+                    }
+                }
+            }
+
+            return RedirectToAction("SavedRecipe");
         }
 
         [HttpGet]

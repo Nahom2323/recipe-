@@ -9,7 +9,7 @@ namespace RecipeSuggestion.Controllers
 {
 	public class AccountController : Controller
 	{
-
+        // change it back if there's anything wrong with user
         private UserManager<User> _userManager;
         private SignInManager<User> _signInManager;
 
