@@ -4,10 +4,6 @@ namespace RecipeSuggestion.Models.ViewModel
 {
 	public class ChangePasswordViewModel
 	{
-        [Required(ErrorMessage = "Please enter your email address.")]
-        [EmailAddress]
-        public string EmailAddress { get; set; }
-
         [Required(ErrorMessage = "Please enter your current password")]
         public string CurrentPassword { get; set; }
 
