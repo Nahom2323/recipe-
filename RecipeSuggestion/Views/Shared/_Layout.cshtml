@@ -32,7 +32,6 @@
                         @inject SignInManager<User> signInManager
                         @if (signInManager.IsSignedIn(User))
                         {
-
                             <li class="nav-item">
                                 <form method="post" asp-action="Logout"
                                       asp-controller="Account" asp-area="">
@@ -48,6 +47,7 @@
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                     <a class="dropdown-item" asp-controller="Home" asp-action="RecentView">Recently View</a>
                                     <a class="dropdown-item" asp-controller="Home" asp-action="SavedRecipe">Saved Recipe</a>
+                                    <a class="dropdown-item" asp-controller="Account" asp-action="ChangePassword">Change password</a>
                                 </div>
                             </li>
                         }

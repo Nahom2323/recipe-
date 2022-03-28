@@ -89,7 +89,50 @@ namespace RecipeSuggestion.Controllers
             return View(model);
         }
 
-        
+        [HttpGet]
+        public IActionResult ChangePassword()
+		{
+            var cpvm = new ChangePasswordViewModel();
+            return View(cpvm);
+		}
+
+        [HttpPost]
+        public async Task<IActionResult> ChangePassword(ChangePasswordViewModel model)
+		{
+            if (ModelState.IsValid)
+			{
+                var user = await _userManager.GetUserAsync(User);
+                var result = _userManager.PasswordHasher.VerifyHashedPassword(user, user.PasswordHash, model.CurrentPassword);
+                
+                if (result.Equals(PasswordVerificationResult.Success))
+                {
+                    // if the currentpassword is correct
+                    
+                    var changePasswordResult = await _userManager.ChangePasswordAsync(user, model.CurrentPassword, model.NewPassword);
+                    if (changePasswordResult.Succeeded)
+					{
+                        TempData["changePasswordSuccessMessage"] = "Your password has been changed successfully.";
+                        return RedirectToAction("Index", "Home");
+					}
+					else
+					{
+                        TempData["changePasswordNotSuccessMessage"] = "There was an error in changing your password. Please try again.";
+                    }
+                }
+				else
+				{
+                    ModelState.AddModelError("", "Your current password is not correct.");
+                    return View(model);
+                }
+            }
+			else
+			{
+                ModelState.AddModelError("", "Invalid inputs, please try again");
+                return View(model);
+            }
+            return View(model);
+        }
+
     }
 }
 
