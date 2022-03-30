@@ -3,26 +3,26 @@
     ViewData["Title"] = "Search Result";
 }
 
-<p>Filter</p>
-<form method="post" asp-action="Filter">
-    <label>Vegan</label>
-    <input type="checkbox" title="Vegan" asp-for="isVegan" class="form-check" />
-            
-    <label>Gluten Free</label>
-    <input type="checkbox" title="Gluten Free" asp-for="isGlutenFree" class="form-check" />
-            
-    <label>Dairy Free</label>
-    <input type="checkbox" title="Dairy Free" asp-for="isDairyFree" class="form-check" />
-    
-    <label>Healthy</label>
-    <input type="checkbox" title="Healthy" asp-for="isHealthy" class="form-check" />
-    
-    <button type="submit">Apply Filter</button>
+<h1 style="color:mediumblue">Filter by checkbox</h1>
+<form method="post" asp-action="Filter" style="padding-bottom:3em; padding-top:3em;" >
+    <label style="font-size: xx-large; color: #008C20 ">Vegan</label>
+    <input type="checkbox" id="vegan" style="width: 2em; height: 1.5em; display: inline; margin-right: 20px; " runat="server"  title="Vegan" asp-for="isVegan" class="form-check" />
+
+    <label style="font-size: xx-large; margin-left: auto; color: #a0491e">Gluten Free</label>
+    <input type="checkbox" style="width: 2em; height: 1.5em; display: inline; margin-right: 10px;" runat="server" title="Gluten Free" asp-for="isGlutenFree" class="form-check" />
+
+    <label style="font-size: xx-large; margin-left: 30px;">Dairy Free</label>
+    <input type="checkbox" style="width: 2em; height: 1.5em; display: inline; margin-left: 5px;"  runat="server" title="Dairy Free" asp-for="isDairyFree" class="form-check" />
+
+    <label style="font-size: xx-large; margin-left: 30px; color: #00632B;">Healthy</label>
+    <input type="checkbox" style="width: 2em; height: 1.5em; display: inline;  margin-left: 1px;" runat =" server" title="Healthy" asp-for="isHealthy" class="form-check" />
+
+    <button type="submit" style=" margin-left: 40px;font-size:x-large; background-color:green; color:white;  ">Apply Filter</button>
 </form>
 
 <div class="container">
     @for (var i = 0; i < Model.ShortRecipes.Count; i++)
-   {
+    {
         if (Model.IsRecipeDisplayed[i])
         {
             <a asp-controller="Home" asp-action="Detail" asp-route-recipeId="@Model.ShortRecipes[i].Id">
@@ -58,19 +58,19 @@
                                 }
                             }
                         </p>
-                    <p>Cook time: @Model.Recipes[i].ReadyInMinutes</p>
-                    <p>Vegan: @Model.Recipes[i].Vegan</p>
-                    <p>Gluten Free: @Model.Recipes[i].GlutenFree</p>
-                    <p>Dairy Free: @Model.Recipes[i].DairyFree</p>
-                    <p>Healthy?: @Model.Recipes[i].VeryHealthy</p>
+                        <p>Cook time: @Model.Recipes[i].ReadyInMinutes</p>
+                        <p>Vegan: @Model.Recipes[i].Vegan</p>
+                        <p>Gluten Free: @Model.Recipes[i].GlutenFree</p>
+                        <p>Dairy Free: @Model.Recipes[i].DairyFree</p>
+                        <p>Healthy?: @Model.Recipes[i].VeryHealthy</p>
+                    </div>
                 </div>
-            </div>
             </a>
-            
-            }
-        }
 
-        <!-- If there is no record shown, a message would be displayed -->
+        }
+    }
+
+    <!-- If there is no record shown, a message would be displayed -->
     @{
         int n = 0;
         foreach (bool b in @Model.IsRecipeDisplayed)
