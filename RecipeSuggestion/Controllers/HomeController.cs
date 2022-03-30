@@ -322,6 +322,7 @@ namespace RecipeSuggestion.Controllers
                     List<string> saveRecipeIdsList = savedRecipeIds.ToList();
                     if (saveRecipeIdsList.Remove(recipeId.ToString()))
 					{
+                        /*  MISSING SAVE THE LIST TO DATABASE */
                         TempData["SavedRecipeMessage"] = "Recipe removed from saved list.";
                     }
 					else
