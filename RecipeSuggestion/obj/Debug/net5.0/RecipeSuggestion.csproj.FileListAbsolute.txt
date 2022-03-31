@@ -1274,3 +1274,6 @@ C:\Conestoga\Application Project (INFO2310)\RecipeSuggestion\RecipeSuggestion\Re
 C:\Users\Nahom\Desktop\INFO2310\RecipeSuggestion\RecipeSuggestion\obj\Debug\net5.0\Razor\Views\Account\ChangePassword.cshtml.g.cs
 C:\Users\Nahom\Desktop\INFO2310\RecipeSuggestion\RecipeSuggestion\obj\Debug\net5.0\Razor\Views\Home\RecentView.cshtml.g.cs
 C:\Users\Nahom\Desktop\INFO2310\RecipeSuggestion\RecipeSuggestion\obj\Debug\net5.0\Razor\Views\Home\SavedRecipe.cshtml.g.cs
+C:\Users\juho1\Desktop\recipe\RecipeSuggestion\RecipeSuggestion\obj\Debug\net5.0\Razor\Views\Account\ChangePassword.cshtml.g.cs
+C:\Users\juho1\Desktop\recipe\RecipeSuggestion\RecipeSuggestion\obj\Debug\net5.0\Razor\Views\Home\RecentView.cshtml.g.cs
+C:\Users\juho1\Desktop\recipe\RecipeSuggestion\RecipeSuggestion\obj\Debug\net5.0\Razor\Views\Home\SavedRecipe.cshtml.g.cs

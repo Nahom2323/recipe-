@@ -9,7 +9,7 @@ namespace RecipeSuggestion.Helpers
 	/* HUY'S PART */
 	public static class APIHelper
 	{
-		private static string apiKey = "b4b3711112c44df7911016052365c1d9";
+		private static string apiKey = "d7b1d65daf3b4846b069e98155097e21";
 
 		// this settings may help prevent error in covertting null to int
 		public static JsonSerializerSettings settings = new JsonSerializerSettings
