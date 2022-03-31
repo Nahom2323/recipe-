@@ -251,7 +251,16 @@ namespace RecipeSuggestion.Controllers
                 }
 				else
 				{
-                    string newSaveRecipeIds = userInformation.SavedRecipeIds + "," + recipeId.ToString();
+                    string newSaveRecipeIds;
+                    if (userInformation.SavedRecipeIds.Trim() != "")
+					{
+                        newSaveRecipeIds = userInformation.SavedRecipeIds + "," + recipeId.ToString();
+                    }
+					else
+					{
+                        newSaveRecipeIds = recipeId.ToString();
+                    }
+
                     UserInformation newUserInformation = new UserInformation
                     {
                         UserId = userId,
@@ -293,11 +302,17 @@ namespace RecipeSuggestion.Controllers
             if (userInformation != null)
 			{
                 string[] savedRecipeIds = userInformation.SavedRecipeIds.Split(',');
-                foreach (string savedRecipeId in savedRecipeIds)
+                if (savedRecipeIds.Length > 0)
 				{
-                    recipes.Add(APIHelper.GetRecipeFromId(int.Parse(savedRecipeId)));
-				}
-			}
+                    if (savedRecipeIds[0] != "")
+					{
+                        foreach (string savedRecipeId in savedRecipeIds)
+                        {
+                            recipes.Add(APIHelper.GetRecipeFromId(int.Parse(savedRecipeId)));
+                        }
+                    }
+                }
+            }
 
             // the "reverse" makes newest item in the saved list appears first
             if (recipes.Count > 0)
@@ -321,8 +336,29 @@ namespace RecipeSuggestion.Controllers
                     string[] savedRecipeIds = userInformation.SavedRecipeIds.Split(',');
                     List<string> saveRecipeIdsList = savedRecipeIds.ToList();
                     if (saveRecipeIdsList.Remove(recipeId.ToString()))
-					{
-                        /*  MISSING SAVE THE LIST TO DATABASE */
+                    {
+                        string savedRecipeIdsString = "";
+
+						for (int i = 0; i < saveRecipeIdsList.Count; i++)
+						{
+                            if (i != saveRecipeIdsList.Count-1)
+							{
+                                savedRecipeIdsString += saveRecipeIdsList[i] + ",";
+                            }
+							else
+							{
+                                savedRecipeIdsString+= saveRecipeIdsList[i];
+							}
+						}
+
+                        UserInformation newUserInformation = new UserInformation
+                        {
+                            UserId = userInformation.UserId,
+                            SavedRecipeIds = savedRecipeIdsString
+                        };
+                        context.Remove(userInformation);
+                        context.Add(newUserInformation);
+                        context.SaveChanges();
                         TempData["SavedRecipeMessage"] = "Recipe removed from saved list.";
                     }
 					else
