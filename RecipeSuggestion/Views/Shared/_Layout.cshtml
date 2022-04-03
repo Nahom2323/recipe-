@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -11,58 +11,60 @@
       <link rel="stylesheet" href="//code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css">
   <link rel="stylesheet" href="/resources/demos/style.css">
 </head>
-<body>
+<body style="background-color:white;">
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container">
-                <a asp-controller="Home" asp-action="Index"><img src="~/Images/logo.png" alt="logo" id="homeLogo" /></a>
+        <nav  class="navbar navbar-expand-sm  navbar-dark bg-success border-bottom box-shadow mb-3">
+            <div  class="container">
+                <a asp-controller="Home" asp-action="Index"><img src="~/Images/logo.png" alt="logo" id="homeLogo" style="background-color:white;"/></a>
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between navbar-text">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                            <a class="navbar-brand" style="font-size:x-large" asp-controller="Home" asp-action="Index">Recipe Suggestion</a>
+                            <a  class="navbar-brand" style="font-size:x-large; color:yellow;" asp-controller="Home" asp-action="Index">Recipe Suggestion</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" style="font-size:x-large" asp-controller="Home" asp-action="About">About</a>
+                            <a class="nav-link text-white" style="font-size:x-large;margin-left:3em; " asp-controller="Home" asp-action="About">About</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" style="font-size:x-large" asp-controller="Home" asp-action="ContactUs">Contact Us</a>
+                            <a class="nav-link text-white" style="font-size:x-large; margin-left:3em; " asp-controller="Home" asp-action="ContactUs">Contact Us</a>
                         </li>
                     </ul>
-                    <ul class="navbar-nav ml-auto">
+                    <ul class="navbar-nav ml-auto" style="font-size:x-large">
                         @inject SignInManager<User> signInManager
                         @if (signInManager.IsSignedIn(User))
                         {
                             <li class="nav-item">
                                 <form method="post" asp-action="Logout"
                                       asp-controller="Account" asp-area="">
-                                    <input type="submit" value="Log Out"
-                                           class="nav-link text-dark" />
+                                    <input style="font-size:x-large; color:black" type="submit" value="Log Out"
+                                           class="nav-link text-black" />
                                 </form>
                             </li>
 
                             <li class="nav item dropdown">
-                                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <button style="font-size:x-large;"class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     Account
                                 </button>
-                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                    <a class="dropdown-item" asp-controller="Home" asp-action="RecentView">Recently View</a>
-                                    <a class="dropdown-item" asp-controller="Home" asp-action="SavedRecipe">Saved Recipe</a>
-                                    <a class="dropdown-item" asp-controller="Account" asp-action="ChangePassword">Change password</a>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="color:black;" >
+                                    <a class="dropdown-item" asp-controller="Home" asp-action="RecentView"style="color:black">Recently View</a>
+                                    <a class="dropdown-item" asp-controller="Home" asp-action="SavedRecipe"style="color:black">Saved Recipe</a>
+                                    <a class="dropdown-item" asp-controller="Account" asp-action="ChangePassword"style="color:black">Change password</a>
                                 </div>
                             </li>
                         }
                         else
                         {
-                            <li class="nav-item"><a class="nav-link text-dark" style="font-size:x-large; " asp-controller="Account" asp-action="SignUp">Sign Up</a></li>
-                            <li class="nav-item"><a class="nav-link text-dark" style="font-size:x-large;" asp-controller="Account" asp-action="LogIn">Log In</a></li>
+                            <li class="nav-item"><a class="nav-link text-white" style="font-size:x-large; " asp-controller="Account" asp-action="SignUp">Sign Up</a></li>
+                            <li class="nav-item"><a class="nav-link text-white" style="font-size:x-large;" asp-controller="Account" asp-action="LogIn">Log In</a></li>
 
-                            <li class="nav item dropdown">
+                            <li class="nav item dropdown" >
                                 <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     Account
                                 </button>
-                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                    <a class="dropdown-item" asp-controller="Home" asp-action="RecentView">Recently View</a>
-                                    <a class="dropdown-item" asp-controller="Home" asp-action="SavedRecipe">Saved Recipe</a>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" >
+                                    <a class="dropdown-item" asp-controller="Home" asp-action="RecentView" style="color:black">Recently View</a>
+                                    <a class="dropdown-item" asp-controller="Home" asp-action="SavedRecipe" style="color:black">Saved Recipe</a>
+                                    <a class="dropdown-item" asp-controller="Account" asp-action="ChangePassword"style="color:black">Change password</a>
+
                                 </div>
                             </li>
                         }
@@ -422,8 +424,8 @@
                  "fenugreek seeds",
                  "feta cheese",
                  " fettuccine",
-                  " fire roasted tomatoes",
-                 "  fish",
+                 " fire roasted tomatoes",
+                 "fish",
                 "fish sauce",
                 "fish stock",
 
