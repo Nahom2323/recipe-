@@ -1,9 +1,9 @@
-﻿@model ResultPageViewModel
+@model ResultPageViewModel
 @{
     ViewData["Title"] = "Search Result";
 }
 
-<h1 style="color:mediumblue">Filter by checkbox</h1>
+@*<h1 style="color:mediumblue">Filter by checkbox</h1>*@
 <form method="post" asp-action="Filter" style="padding-bottom:3em; padding-top:3em;" >
     <label style="font-size: xx-large; color: #008C20 ">Vegan</label>
     <input type="checkbox" id="vegan" style="width: 2em; height: 1.5em; display: inline; margin-right: 20px; " runat="server"  title="Vegan" asp-for="isVegan" class="form-check" />
