@@ -66,5 +66,6 @@
         <h5 class="m-2">Source: <a href="@Model.SourceUrl">@Model.SourceName</a>, <a href="@Model.SpoonacularSourceUrl">Spoonacular API</a></h5>
 
         <a class="btn btn-primary" asp-route-recipeId="@Model.Id" asp-action="SaveRecipe">Save this recipe</a>
+        <a class="btn btn-primary" href="@ViewBag.youtubeLink" target="_blank">Search this recipe on Youtube</a>
     </div>
 </div>

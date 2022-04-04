@@ -19,7 +19,6 @@ namespace RecipeSuggestion.Controllers
 {
     public class HomeController : Controller
     {
-        
         private readonly UserManager<User> _userManager;
         private readonly ILogger<HomeController> _logger;
         private RecipeSuggestionDbContext context { get; set; }
@@ -170,6 +169,7 @@ namespace RecipeSuggestion.Controllers
                 HttpContext.Session.SetString("recentlyViewedRecipe", recipeId.ToString());
             }
 
+            ViewBag.youtubeLink = "https://www.youtube.com/results?search_query=" + recipe.Title.Replace(' ', '+');
             return View(recipe);
         }
 
