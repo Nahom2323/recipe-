@@ -31,7 +31,6 @@ namespace RecipeSuggestion.Controllers
 		}
 
 		[HttpGet]
-
         public IActionResult Index()
         {
             string randomRecipeString = APIHelper.GetRandomRecipe();
@@ -40,7 +39,6 @@ namespace RecipeSuggestion.Controllers
             IndexPageViewModel ipvm = new IndexPageViewModel();
             ipvm.RandomRecipeSuggestion = randomRecipe;
 
-            
             return View(ipvm);
         }
 
