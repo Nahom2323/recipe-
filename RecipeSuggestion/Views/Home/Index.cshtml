@@ -92,13 +92,16 @@
                         if (@Model.RandomRecipeSuggestion.Cuisines.Count == 0)
                         {
                             @Html.Raw("N/A");
-
                         }
                         else
                         {
                             for (var i = 0; i < @Model.RandomRecipeSuggestion.Cuisines.Count; i++)
                             {
                                 @Model.RandomRecipeSuggestion.Cuisines[i]
+                                if (i<@Model.RandomRecipeSuggestion.Cuisines.Count-1)
+                                {
+                                    @Html.Raw(", ");
+                                }
                             }
                         }
 
