@@ -99,27 +99,35 @@ namespace RecipeSuggestion.Controllers
 
             string JSONString = APIHelper.SearchRecipeByIngredients(ingredients);
             List<ShortRecipe> shortRecipes = APIHelper.ConvertJSONToListOfShortRecipes(JSONString);
-            List<int> ids= new List<int>();
+            List<int> ids = new List<int>();
 			foreach (ShortRecipe shortRecipe in shortRecipes)
 			{
                 ids.Add(shortRecipe.Id);
 			}
-
-            List<Recipe> recipes = APIHelper.GetRecipeFromMultipleIds(ids);
-            List<bool> isRecipeDisplayed= new List<bool>();
-			for (int i = 0; i < recipes.Count; i++)
+            // to prevent errors being shown up to the end users
+            if (shortRecipes.Count != 0)
 			{
-                isRecipeDisplayed.Add(true);
-			}
-            ResultPageViewModel rpvm = new ResultPageViewModel{
-                ShortRecipes = shortRecipes,
-                Recipes = recipes,
-                IsRecipeDisplayed = isRecipeDisplayed
-            };
-            string rpvmJSON = JsonConvert.SerializeObject(rpvm);
-            HttpContext.Session.SetString("currentResult", rpvmJSON);
+                List<Recipe> recipes = APIHelper.GetRecipeFromMultipleIds(ids);
+                List<bool> isRecipeDisplayed = new List<bool>();
+                for (int i = 0; i < recipes.Count; i++)
+                {
+                    isRecipeDisplayed.Add(true);
+                }
+                ResultPageViewModel rpvm = new ResultPageViewModel
+                {
+                    ShortRecipes = shortRecipes,
+                    Recipes = recipes,
+                    IsRecipeDisplayed = isRecipeDisplayed
+                };
+                string rpvmJSON = JsonConvert.SerializeObject(rpvm);
+                HttpContext.Session.SetString("currentResult", rpvmJSON);
 
-            return View(rpvm);
+                return View(rpvm);
+            }
+			else
+			{
+                return View(null);
+			}
         }
 
         public IActionResult About()
