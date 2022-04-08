@@ -9,7 +9,20 @@ namespace RecipeSuggestion.Helpers
 	/* HUY'S PART */
 	public static class APIHelper
 	{
-		private static string apiKey = "d873a6671d264222810681f28296d532";
+		// main
+		private static string apiKey = "8a0179ea66554ab69e6ba8d5035ff4c4";
+
+		// secondary api keys
+		private static string apiKey2 = "b4b3711112c44df7911016052365c1d9";
+		private static string apiKey3 = "d7b1d65daf3b4846b069e98155097e21";
+		private static string apiKey4 = "d873a6671d264222810681f28296d532";
+
+		// back-up api keys
+		private static string apiKey5 = "1a529aa1e8a2499baca2dd35ff77e292";
+		private static string apiKey6 = "450731ff225445bd9b2aa59d51f0ed25";
+		private static string apiKey7 = "";
+		private static string apiKey8 = "";
+
 
 		// this settings may help prevent error in covertting null to int
 		public static JsonSerializerSettings settings = new JsonSerializerSettings
@@ -51,24 +64,12 @@ namespace RecipeSuggestion.Helpers
 		}
 
 		/// <summary>
-		/// Get a list of ingredients based on search string
-		/// </summary>
-		/// <param name="searchString"></param>
-		/// <returns>a list of ingredients in JSON format</returns>
-		public static string AutoCompleteIngredientSearch(string searchString)
-		{
-			string apiString = "https://api.spoonacular.com/food/ingredients/autocomplete" + $"?apiKey={apiKey}" + "&number=4" + "&metaInformation=false" + $"&query={searchString}";
-
-			return GetJSONStringFromAPI(apiString);
-		}
-
-		/// <summary>
 		/// Return one random recipe in JSON format
 		/// </summary>
 		/// <returns></returns>
 		public static string GetRandomRecipe()
 		{
-			string apiString = "https://api.spoonacular.com/recipes/random" + $"?apiKey={apiKey}" + "&number=1";
+			string apiString = "https://api.spoonacular.com/recipes/random" + $"?apiKey={apiKey2}" + "&number=1";
 			
 			string returnJSONString = GetJSONStringFromAPI(apiString);
 
@@ -126,6 +127,7 @@ namespace RecipeSuggestion.Helpers
 				if (result.IsSuccessStatusCode)
 				{
 					var message = result.Content.ReadAsStringAsync();
+					
 					message.Wait();
 					return message.Result;
 				}
@@ -142,7 +144,7 @@ namespace RecipeSuggestion.Helpers
 		/// <returns></returns>
 		public static Recipe GetRecipeFromId(int id)
 		{
-			string APIString = "https://api.spoonacular.com/recipes/" + id.ToString() + $"/information?apiKey={apiKey}";
+			string APIString = "https://api.spoonacular.com/recipes/" + id.ToString() + $"/information?apiKey={apiKey3}";
 			string JSONString = GetJSONStringFromAPI(APIString);
 			Recipe recipe = ConvertJSONToOneRecipe(JSONString);
 
@@ -151,7 +153,7 @@ namespace RecipeSuggestion.Helpers
 
 		public static List<Recipe> GetRecipeFromMultipleIds(List<int> ids)
 		{
-			string APIString = $"https://api.spoonacular.com/recipes/informationBulk?apiKey={apiKey}&ids=";
+			string APIString = $"https://api.spoonacular.com/recipes/informationBulk?apiKey={apiKey4}&ids=";
 			foreach (int id in ids)
 			{
 				APIString += id.ToString() + ",";
