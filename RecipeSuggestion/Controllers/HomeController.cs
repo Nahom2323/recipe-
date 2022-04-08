@@ -168,6 +168,9 @@ namespace RecipeSuggestion.Controllers
             }
 
             ViewBag.youtubeLink = "https://www.youtube.com/results?search_query=" + recipe.Title.Replace(' ', '+');
+
+            // fix price error from API
+            recipe.PricePerServing=Math.Round(recipe.PricePerServing/100, 2);
             return View(recipe);
         }
 
