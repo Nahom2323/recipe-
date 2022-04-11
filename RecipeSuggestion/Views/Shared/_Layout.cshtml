@@ -31,6 +31,7 @@
                     </ul>
                     <ul class="navbar-nav ml-auto" style="font-size:x-large">
                         @inject SignInManager<User> signInManager
+                        @inject UserManager<User> userManager
                         @if (signInManager.IsSignedIn(User))
                         {
                             <li class="nav-item">
@@ -51,6 +52,9 @@
                                     <a class="dropdown-item" asp-controller="Account" asp-action="ChangePassword"style="color:black">Change password</a>
                                 </div>
                             </li>
+                            @using RecipeSuggestion.Helpers
+                            var currentUser = await userManager.GetUserAsync(User);
+                            <p>Hi, @currentUser.UserName</p>
                         }
                         else
                         {
