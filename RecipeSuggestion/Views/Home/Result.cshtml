@@ -40,7 +40,7 @@
                                                                     <strong>Missed Ingredients:</strong>
                                     @for (var j = 0; j < Model.ShortRecipes[i].MissedIngredients.Count; j++)
                                     {
-                                        if (i != Model.ShortRecipes[i].MissedIngredients.Count - 1)
+                                        if (j != Model.ShortRecipes[i].MissedIngredients.Count - 1)
                                         {
                                                                                                     <span>@Model.ShortRecipes[i].MissedIngredients[j].Name, </span>
                                         }
