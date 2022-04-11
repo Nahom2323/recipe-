@@ -10,6 +10,7 @@ namespace RecipeSuggestion.Models.ViewModel
 	{
         [Required(ErrorMessage = "Please enter an email address.")]
         [EmailAddress]
+        [RegularExpression(@"^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$", ErrorMessage = "Email address is not valid.")]
         public string EmailAddress { get; set; }
 
         [Required(ErrorMessage = "Please enter a password.")]

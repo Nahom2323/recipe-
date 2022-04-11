@@ -4,13 +4,12 @@ namespace RecipeSuggestion.Models.ViewModel
 {
 	public class LogInViewModel
 	{
-        [Required(ErrorMessage = "Please enter an email address.")]
-        [MaxLength(200)]
-        [EmailAddress]
+        [RegularExpression("^[w-.]+@([w-]+.)+[w-]{2,4}$", ErrorMessage = "Email address is not valid.")]
+        [MaxLength(50, ErrorMessage = "Maximum character allowed is 50.")]
         public string EmailAddress { get; set; }
         
         [Required(ErrorMessage = "Please enter a password.")]
-        [MaxLength(200)]
+        [MaxLength(50, ErrorMessage = "Maximum character allowed is 50.")]
         public string Password { get; set; }
 
         public string ReturnUrl { get; set; }
