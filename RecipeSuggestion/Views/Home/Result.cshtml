@@ -64,11 +64,13 @@
                                         }
                                     }
                                                                 </p>
+                                                                
                                                                 <p>Cook time: @Model.Recipes[i].ReadyInMinutes</p>
-                                                                <p>Vegan: @Model.Recipes[i].Vegan</p>
-                                                                <p>Gluten Free: @Model.Recipes[i].GlutenFree</p>
-                                                                <p>Dairy Free: @Model.Recipes[i].DairyFree</p>
-                                                                <p>Healthy?: @Model.Recipes[i].VeryHealthy</p>
+                                                                @using RecipeSuggestion.Helpers
+                                                                <p>Vegan: @StringHelper.ConvertBoolToYesOrNo(@Model.Recipes[i].Vegan)</p>
+                                                                <p>Gluten Free: @StringHelper.ConvertBoolToYesOrNo(@Model.Recipes[i].GlutenFree)</p>
+                                                                <p>Dairy Free: @StringHelper.ConvertBoolToYesOrNo(@Model.Recipes[i].DairyFree)</p>
+                                                                <p>Healthy?: @StringHelper.ConvertBoolToYesOrNo(@Model.Recipes[i].VeryHealthy)</p>
                                                             </div>
                                                         </div>
                                                     </a>
