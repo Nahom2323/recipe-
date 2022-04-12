@@ -14,13 +14,12 @@
 </head>
 <body style="background-color:white;">
     <header>
-        <nav  class="navbar navbar-expand-sm  navbar-dark bg-success border-bottom box-shadow mb-3">
-            <div  class="container">
-                <a asp-controller="Home" asp-action="Index"><img src="~/Images/logo.png" alt="logo" id="homeLogo" style="background-color:white;"/></a>
+        <nav class="navbar navbar-expand-sm  navbar-dark bg-success border-bottom box-shadow mb-3">
+            <a asp-controller="Home" asp-action="Index"><img src="~/Images/logo.png" alt="logo" id="homeLogo" style="background-color:none; width:100px; height:auto;" /></a>
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between navbar-text">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                            <a  class="navbar-brand" style="font-size:x-large; color:yellow;" asp-controller="Home" asp-action="Index">Recipe Suggestion</a>
+                            <a class="navbar-brand" style="font-size:x-large; color:yellow;" asp-controller="Home" asp-action="Index">Recipe Suggestion</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-white" style="font-size:x-large;margin-left:3em; " asp-controller="Home" asp-action="About">About</a>
@@ -34,8 +33,6 @@
                         @inject UserManager<User> userManager
                         @if (signInManager.IsSignedIn(User))
                         {
-
-
                             <li class="nav-item">
                                 <form method="post" asp-action="Logout"
                                       asp-controller="Account" asp-area="">
@@ -63,12 +60,11 @@
                             <li class="nav-item"><a class="nav-link text-white" style="font-size:x-large; " asp-controller="Account" asp-action="SignUp">Sign Up</a></li>
                             <li class="nav-item"><a class="nav-link text-white" style="font-size:x-large;" asp-controller="Account" asp-action="LogIn">Log In</a></li>
 
-
                         }
 
                     </ul>
                 </div>
-            </div>
+           
         </nav>
 
     </header>
