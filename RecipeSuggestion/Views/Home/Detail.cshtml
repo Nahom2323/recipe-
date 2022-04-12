@@ -10,9 +10,9 @@
 <div class="thumbnail card shadow">
     <div class="clearfix">
         <img src="@Model.Image" alt="@Model.Title" style="width:50%" class="float-right">
-        <h4 class="m-2">@Model.Title</h4>
+        <h1 class="m-2">@Model.Title</h1>
 
-        <h5 class="m-2">Ingredients:</h5>
+        <h3 class="m-2">Ingredients:</h3>
         <ul>
             @{
                     for (var i = 0; i < @Model.ExtendedIngredients.Count; i++)
