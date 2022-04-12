@@ -10,19 +10,18 @@ namespace RecipeSuggestion.Helpers
 	public static class APIHelper
 	{
 		// main
-		private static string apiKey = "8a0179ea66554ab69e6ba8d5035ff4c4";
+		private static string apiKey5 = "8a0179ea66554ab69e6ba8d5035ff4c4";
 
 		// secondary api keys
-		private static string apiKey2 = "b4b3711112c44df7911016052365c1d9";
-		private static string apiKey3 = "d7b1d65daf3b4846b069e98155097e21";
-		private static string apiKey4 = "d873a6671d264222810681f28296d532";
+		private static string apiKey6 = "b4b3711112c44df7911016052365c1d9";
+		private static string apiKey7 = "d7b1d65daf3b4846b069e98155097e21";
+		private static string apiKey8 = "d873a6671d264222810681f28296d532";
 
 		// back-up api keys
-		private static string apiKey5 = "1a529aa1e8a2499baca2dd35ff77e292";
-		private static string apiKey6 = "450731ff225445bd9b2aa59d51f0ed25";
-		private static string apiKey7 = "";
-		private static string apiKey8 = "";
-
+		private static string apiKey = "1a529aa1e8a2499baca2dd35ff77e292";
+		private static string apiKey2 = "450731ff225445bd9b2aa59d51f0ed25";
+		private static string apiKey3 = "907e33a0256f455f84fb95bfd8d8f096";
+		private static string apiKey4 = "1cb947e7ecf14afaab8d75e4723bf0e1";
 
 		// this settings may help prevent error in covertting null to int
 		public static JsonSerializerSettings settings = new JsonSerializerSettings
