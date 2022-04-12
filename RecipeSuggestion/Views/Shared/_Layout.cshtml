@@ -34,34 +34,36 @@
                         @inject UserManager<User> userManager
                         @if (signInManager.IsSignedIn(User))
                         {
+
+
                             <li class="nav-item">
                                 <form method="post" asp-action="Logout"
                                       asp-controller="Account" asp-area="">
-                                    <input style="font-size:x-large; color:black" type="submit" value="Log Out"
+                                    <input type="submit" value="Log Out"
                                            class="nav-link text-black" />
                                 </form>
                             </li>
 
-                            <li class="nav item dropdown">
-                                <button style="font-size:x-large;"class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <li class="nav item dropdown ml-3">
+                                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     Account
                                 </button>
-                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="color:black;" >
-                                    <a class="dropdown-item" asp-controller="Home" asp-action="RecentView"style="color:black">Recently View</a>
-                                    <a class="dropdown-item" asp-controller="Home" asp-action="SavedRecipe"style="color:black">Saved Recipe</a>
-                                    <a class="dropdown-item" asp-controller="Account" asp-action="ChangePassword"style="color:black">Change password</a>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="color:black;">
+                                    <a class="dropdown-item" asp-controller="Home" asp-action="RecentView" style="color:black">Recently View</a>
+                                    <a class="dropdown-item" asp-controller="Home" asp-action="SavedRecipe" style="color:black">Saved Recipe</a>
+                                    <a class="dropdown-item" asp-controller="Account" asp-action="ChangePassword" style="color:black">Change password</a>
                                 </div>
                             </li>
                             @using RecipeSuggestion.Helpers
                             var currentUser = await userManager.GetUserAsync(User);
-                            <p>Hi, @currentUser.UserName</p>
+                            <li class="nav item m-3">Hi, @currentUser.UserName</li>
                         }
                         else
                         {
                             <li class="nav-item"><a class="nav-link text-white" style="font-size:x-large; " asp-controller="Account" asp-action="SignUp">Sign Up</a></li>
                             <li class="nav-item"><a class="nav-link text-white" style="font-size:x-large;" asp-controller="Account" asp-action="LogIn">Log In</a></li>
 
-                           
+
                         }
 
                     </ul>
