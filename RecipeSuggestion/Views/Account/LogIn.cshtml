@@ -3,7 +3,8 @@
     ViewBag.Title = "Log In";
 }
 
-<h1>Login</h1>
+<h1 style="color:green;">
+    <u>Login</u></h1>
 
 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 <form method="post" asp-controller="Account" style="font-size:x-large" asp-action="LogIn"  asp-route-returnUrl="@Model.ReturnUrl">
