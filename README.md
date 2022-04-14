@@ -5,7 +5,11 @@ Additionally, end users can save the recipes for later use when they login.
 Moreover, we are expecting that this website will be able to reduce the amount of wasted food. 
 
 # Technologies
-C# ASP.NET MVC (.NET 5). 
+1. C# ASP.NET MVC (.NET 5).
+2. Entity Framework
+3. API
+4. SQL Server
+5. Azure Cloud Service
 
 # Troubleshoot
 If you cannot run it in Visual Studio, please make sure .NET 5.0 is installed on your machine. 
