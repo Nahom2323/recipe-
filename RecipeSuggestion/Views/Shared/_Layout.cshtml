@@ -34,13 +34,16 @@
                         @if (signInManager.IsSignedIn(User))
                         {
                             <li class="nav-item">
-                                <form method="post" asp-action="Logout"
+                                @*<form method="post" asp-action="Logout"
                                       asp-controller="Account" asp-area="">
                                     <input type="submit" value="Log Out"
-                                           class="nav-link text-black" style="color:black" />
-                                </form>
+                                           class="" style="color:black" />
+                                </form>*@
+                                <a asp-action="Logout"
+                                      asp-controller="Account" class="btn btn-primary" style="width: 102.06px; height: 68px; padding-top:1.4em; ">Log Out</a>
                             </li>
 
+                            @*nav-link text-black*@
                             <li class="nav item dropdown ml-3">
                                 <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     Account
@@ -53,7 +56,7 @@
                             </li>
                             @using RecipeSuggestion.Helpers
                             var currentUser = await userManager.GetUserAsync(User);
-                            <li class="nav item m-3">Hi, @currentUser.UserName</li>
+                            <li class="nav item m-3" style="font-weight:bold; color: white;">Hi, @currentUser.UserName</li>
                         }
                         else
                         {
