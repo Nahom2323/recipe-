@@ -1,0 +1,72 @@
+﻿@model Recipe
+@{
+    ViewData["Title"] = @Model.Title;
+}
+<!-- Show a message if the recipe is saved sucessfully -->
+@if (TempData["Message"]!=null)
+{
+    <p class="alert alert-primary" role="alert">@TempData["Message"]</p>
+}
+<div class="thumbnail card shadow">
+    <div class="clearfix">
+        <img src="@Model.Image" alt="@Model.Title" style="width:50%" class="float-right">
+        <h1 class="m-2">@Model.Title</h1>
+
+        <h3 class="m-2">Ingredients:</h3>
+        <ul>
+            @{
+                    for (var i = 0; i < @Model.ExtendedIngredients.Count; i++)
+                    {
+                       <li class="m-2">@Model.ExtendedIngredients[i].Original</li>
+                    }
+                }
+        </ul>
+        <h5 class="m-2">How to cook?</h5>
+        <ol class="m-2">
+            @for (var i = 0; i < @Model.AnalyzedInstructions[0].Steps.Count; i++)
+            {
+                <li>
+                    <!-- Step description -->
+                    @Model.AnalyzedInstructions[0].Steps[i].Step
+                </li>
+            }
+        </ol>
+
+        <h5 class="m-2">Servings: @Model.Servings</h5>
+
+        <h5 class="m-2">Pricing per serving: $@Model.PricePerServing USD</h5>
+
+        <h5 class="m-2">Health Score: @Model.HealthScore</h5>
+
+        <h5 class="m-2">
+            <strong>Cuisines:</strong>
+            @{
+                if (@Model.Cuisines.Count == 0)
+                {
+                    @Html.Raw("N/A");
+
+                }
+                else
+                {
+                    for (var i = 0; i < @Model.Cuisines.Count; i++)
+                    {
+                        if (i != @Model.Cuisines.Count - 1)
+                        {
+                            <span>@Model.Cuisines[i], </span>
+                        }
+                        else
+                        {
+                            <span>@Model.Cuisines[i]</span>
+                            }
+                        }
+
+                    }
+                }
+            </h5>
+        <h5 class="m-2">Source: <a href="@Model.SourceUrl">@Model.SourceName</a>, <a href="@Model.SpoonacularSourceUrl">Spoonacular API</a></h5>
+
+        <a class="btn btn-primary" asp-route-recipeId="@Model.Id" asp-action="SaveRecipe">Save this recipe</a>
+        <a class="btn btn-primary" href="@ViewBag.youtubeLink" target="_blank">Search this recipe on Youtube</a>
+        <a class="btn btn-primary" asp-action="Index">Back to Home page</a>
+    </div>
+</div>

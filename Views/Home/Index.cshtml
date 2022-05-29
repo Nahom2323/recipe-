@@ -1,0 +1,119 @@
+﻿@model IndexPageViewModel
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+@if (TempData["changePasswordSuccessMessage"]!=null){
+    <p class="alert alert-primary" role="alert">@TempData["changePasswordSuccessMessage"]</p>
+}
+@if (TempData["changePasswordNotSuccessMessage"]!=null)
+{
+    <p class="alert alert-danger" role="alert">@TempData["changePasswordNotSuccessMessage"]</p>
+}
+
+<h2 class="mb-5" style="color: #0000ff;">Enter the ingredients to search recipes!</h2>
+<div class="row">
+    <div class="col-8">
+        <form method="post" asp-action="Result">
+            
+            <!-- Error messages -->
+            <div class="text-danger">@TempData["Error_NoIngredientsEntered"]</div>
+            <div class="text-danger">@TempData["Error_NoNumberNoSpecialCharacter"]</div>
+
+            <div class="form-group">
+                <label for="ingredient1" style="font-size:xx-large">Ingredient 1:</label>
+                <input id="Ingredient1" type="text" name="ingredient1" class="form-control col-lg-4 col-md-4 col-sm-6 col-xs-12" />
+            </div>
+
+            <div class="form-group">
+                <label for="ingredient2"style="font-size:xx-large">Ingredient 2:</label>
+                <input id="Ingredient2" type="text" name="ingredient2" class="form-control col-lg-4 col-md-4 col-sm-6 col-xs-12" />
+            </div>
+
+            <div class="form-group">
+                <label for="ingredient3"style="font-size:xx-large">Ingredient 3:</label>
+                <input id="Ingredient3" type="text" name="ingredient3" class="form-control col-lg-4 col-md-4 col-sm-6 col-xs-12" />
+            </div>
+
+            <div class="form-group">
+                <label for="ingredient4"style="font-size:xx-large">Ingredient 4:</label>
+                <input id="Ingredient4" type="text" name="ingredient4" class="form-control col-lg-4 col-md-4 col-sm-6 col-xs-12" />
+            </div>
+
+            <div class="form-group">
+                <label for="ingredient5"style="font-size:xx-large">Ingredient 5:</label>
+                <input id="Ingredient5" type="text" name="ingredient5" class="form-control col-lg-4 col-md-4 col-sm-6 col-xs-12" />
+            </div>
+            <div>
+                <button type="submit" class="btn btn-primary mt-5" style="font-size:x-large">
+                    Show Recipe
+                </button>
+            </div>
+           
+        </form>
+    </div>
+
+    <!-- Side bar -->
+
+    <div class="col-4">
+        <div class="img-thumbnail card shadow">
+            <div class="card-body by-light">
+                <h1 style="color:green;" class="card-title">Random Suggestion</h1>
+
+                <!-- Recipe Title -->
+                <h6 class="card-text">@Model.RandomRecipeSuggestion.Title</h6>
+
+                <!-- Image -->
+                <img src="@Model.RandomRecipeSuggestion.Image" alt="@Model.RandomRecipeSuggestion.Title" class="img-fluid" />
+
+                <!-- Ingredients -->
+                <p>
+                    <strong>Ingredients:</strong>
+                    @{
+                        for (var i = 0; i < @Model.RandomRecipeSuggestion.ExtendedIngredients.Count; i++)
+                        {
+                            if (i != @Model.RandomRecipeSuggestion.ExtendedIngredients.Count - 1)
+                            {
+                                <span>@Model.RandomRecipeSuggestion.ExtendedIngredients[i].Name, </span>
+                            }
+                            else
+                            {
+                                <span>@Model.RandomRecipeSuggestion.ExtendedIngredients[i].Name</span>
+                            }
+
+                        }
+                    }
+                </p>
+
+                <!-- Cuisines -->
+                <p>
+                    <strong>Cuisines:</strong>
+                    @{
+                        if (@Model.RandomRecipeSuggestion.Cuisines.Count == 0)
+                        {
+                            @Html.Raw("N/A");
+                        }
+                        else
+                        {
+                            for (var i = 0; i < @Model.RandomRecipeSuggestion.Cuisines.Count; i++)
+                            {
+                                @Model.RandomRecipeSuggestion.Cuisines[i]
+                                if (i<@Model.RandomRecipeSuggestion.Cuisines.Count-1)
+                                {
+                                    @Html.Raw(", ");
+                                }
+                            }
+                        }
+
+                    }
+                </p>
+
+                <!-- Servings -->
+                <p><strong>Servings: </strong>@Model.RandomRecipeSuggestion.Servings</p>
+
+                <!-- See more button! -->
+                <a class="btn btn-primary" asp-action="Detail" asp-route-recipeId="@Model.RandomRecipeSuggestion.Id">See more</a>
+            </div>
+        </div>
+    </div>
+</div>
